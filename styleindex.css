@@ -283,6 +283,7 @@ html {
             justify-content: center;
             & > .hammenu_btn {
                 height: 30px;
+                cursor: pointer;
             }
             & > a.Branding {
                 height:50px;
@@ -527,6 +528,7 @@ html {
             
             
             & > div.close_btn {
+                cursor: pointer;
                 white-space: nowrap;
                 font-size: small;
                 font-weight: bold;
