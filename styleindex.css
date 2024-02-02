@@ -130,10 +130,15 @@ html {
             font-family: Poppins;
             Color: rgb(255, 255, 255);
             border-radius: 20px;
-            padding: 20px 0px;
+            
             filter: drop-shadow(5px 5px 5px black);
 
             & > div.shopbyanime_container_desk {
+                display: none;
+                transition: all 200ms;
+                height: 0px;
+                overflow: hidden;
+                
                 & > span {
                         font-size: larger;
                         font-weight: bolder;
@@ -141,12 +146,48 @@ html {
                         filter: drop-shadow(5px 5px 5px rgb(0, 0, 0));
                     };
                 & > div.shopbyanime_content_desk {
+                    
                     margin-top: 15px;
                     margin-left: 40px;
                     width:fit-content;
                     column-gap: 30px;
                     row-gap: 4px;
                     height: 200px;
+
+                    & > a {
+                        text-decoration: none;
+                        color: rgb(211, 211, 211);
+                        width: min-content;
+                        font-size: small;
+                        
+                    };
+                    
+                    display: flex;
+                    white-space: nowrap;
+                    flex-wrap: wrap;
+                    flex-direction: column;
+                }
+                
+            };
+            & > div.shopbytype_container_desk {
+                display: none;
+                height: 0px;
+                transition: all ease 200ms;
+                overflow: hidden;
+                
+                & > span {
+                        font-size: larger;
+                        font-weight: bolder;
+                        margin: 0px 30px;
+                        filter: drop-shadow(5px 5px 5px rgb(0, 0, 0));
+                    };
+                & > div.shopbytype_content_desk {
+                    margin-top: 15px;
+                    margin-left: 40px;
+                    width:fit-content;
+                    column-gap: 30px;
+                    row-gap: 4px;
+                    height: 150px;
 
                     & > a {
                         text-decoration: none;
@@ -565,6 +606,9 @@ html {
         position: absolute;
         height: 100%;
         z-index: 99999999;
+        & > div.shopby_container_desktop {
+            display: none;
+        };
         & > div.navigation_menu_mob_container {
             width: 0px;
             display: none;

@@ -45,10 +45,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const shopbytype_content = document.querySelector('.shopbytype_content_mob');
     const shopbyanime_content = document.querySelector('.shopbyanime_content_mob');
 
-    const expand_element = (parent,element, display) => {
+    const expand_element_mobile = (parent,element, display) => {
         
         element.style.display = display;
-        element.style.height = 'auto'; // Set height to auto temporarily
+        element.style.height = 'auto'; 
         const computedHeight = window.getComputedStyle(element).getPropertyValue('height'); // Get computed height
         element.style.height = '0px'; 
 
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         
     };
     
-    const contract_element = (parent, element)=>{
+    const contract_element_mobile = (parent, element)=>{
         
         element.style.height = '0px';
         setTimeout(()=>{
@@ -70,13 +70,77 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     shopbytype_btn.addEventListener('click', ()=>{
         if (shopbytype_content.style.display == 'flex') {
-            contract_element(shopbytype_btn ,shopbytype_content);
-        } else {expand_element(shopbytype_btn ,shopbytype_content, 'flex')}
+            contract_element_mobile(shopbytype_btn ,shopbytype_content);
+        } else {expand_element_mobile(shopbytype_btn ,shopbytype_content, 'flex')}
     });
     shopbyanime_btn.addEventListener('click', ()=>{
         if (shopbyanime_content.style.display == 'flex') {
-            contract_element(shopbyanime_btn, shopbyanime_content);
-        } else {expand_element(shopbyanime_btn, shopbyanime_content, 'flex')}
+            contract_element_mobile(shopbyanime_btn, shopbyanime_content);
+        } else {expand_element_mobile(shopbyanime_btn, shopbyanime_content, 'flex')}
     })
 
-})
+    // DESKTOP NAV SETUP
+    const shopbyanime_btn_desk = document.querySelector('.ShopByAnime_head');
+    const shopbytype_btn_desk = document.querySelector('.ShopByType_head');
+
+    const shopbyanime_container = document.querySelector('.shopbyanime_container_desk');
+    const shopbytype_container = document.querySelector('.shopbytype_container_desk');
+
+    const expand_element_desktop = (parent, element, height) => {
+        element.style.display = 'block';
+        element.style.height = '0px';
+        setTimeout(() => {
+            element.style.height = height;
+            parent.textContent = parent.textContent.replace('+', '-');
+        }, 200);
+    };
+
+    const contract_element_desktop = (parent, element) => {
+        element.style.height = '0px';
+        setTimeout(() => {
+            element.style.display = 'none';
+            parent.textContent = parent.textContent.replace('-', '+');
+        }, 200);
+    };
+
+    const closeExpandedElements = () => {
+        if (shopbytype_container.style.display === 'block') {
+            contract_element_desktop(shopbytype_btn_desk, shopbytype_container);
+        }
+        if (shopbyanime_container.style.display === 'block') {
+            contract_element_desktop(shopbyanime_btn_desk, shopbyanime_container);
+        }
+    };
+
+    shopbytype_btn_desk.addEventListener('click', () => {
+        if (shopbytype_container.style.display === 'block') {
+            contract_element_desktop(shopbytype_btn_desk, shopbytype_container);
+        } else {
+            closeExpandedElements();
+            expand_element_desktop(shopbytype_btn_desk, shopbytype_container, 'auto');
+        }
+    });
+
+    shopbyanime_btn_desk.addEventListener('click', () => {
+        if (shopbyanime_container.style.display === 'block') {
+            contract_element_desktop(shopbyanime_btn_desk, shopbyanime_container);
+        } else {
+            closeExpandedElements();
+            expand_element_desktop(shopbyanime_btn_desk, shopbyanime_container, 'auto');
+        }
+    });
+
+    document.addEventListener('click', (event) => {
+        const clickedElement = event.target;
+        if (
+            clickedElement !== shopbytype_btn_desk &&
+            !shopbytype_container.contains(clickedElement) &&
+            clickedElement !== shopbyanime_btn_desk &&
+            !shopbyanime_container.contains(clickedElement)
+        ) {
+            closeExpandedElements();
+        }
+    });
+
+    // Additional code for mobile navigation and other functionalities can be added here if needed.
+});
