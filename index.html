@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="styleindex.css">
 </head>
 <body>
+    <div class="loading-screen">
+        <div class="spinner"></div>
+    </div>
+
     <div class="overlays">
         <div class="navigation_menu_mob_container">
             <div class="close_btn">
@@ -114,7 +118,7 @@
         </div>
     </div>
 
-    <div class="content">
+    <div class="content" style="display:none">
         <div class="header">
             <div class="left_header">
                 <img class="hammenu_btn" src="Assets/Components/Menu_Button_White.png">
@@ -139,20 +143,24 @@
         <div class="slideshow_search_container">
             <div class="slideshow_main_container">
                 <div class="slide">
-                    <div class="prev_slide">
-                        <img src="Assets/Components/Arrow_Icon_White.png" class="prev_button">
-                    </div>
+                    
                     <img class="slide_image" src="Assets/Slideshow_images/img 1.jpg" alt="Slide 1">
-                    <div class="next_slide">
-                        <img src="Assets/Components/Arrow_Icon_White.png" class="next_button">
-                    </div>
-                    <div class="dots_slide">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                    </div>
+                      
+                </div>
+
+                <div class="next_slide">
+                    <img src="Assets/Components/Arrow_Icon_White.png" class="next_button">
+                </div>
+
+                <div class="prev_slide">
+                    <img src="Assets/Components/Arrow_Icon_White.png" class="prev_button">
+                </div>
+                
+                <div class="dots_slide">
+                    <span class="dot active"></span>
                 </div>
             </div>
+            
             <div class="search_main_container">
                 <div class="search_filter_container">
                     <div class="searchbar">
