@@ -80,67 +80,75 @@ document.addEventListener('DOMContentLoaded', ()=>{
     })
 
     // DESKTOP NAV SETUP
-    const shopbyanime_btn_desk = document.querySelector('.ShopByAnime_head');
-    const shopbytype_btn_desk = document.querySelector('.ShopByType_head');
+    const shopby_container_desk = document.querySelector('.shopby_container_desktop');
+
+    const shopbyanime_desk_btn = document.querySelector('.ShopByAnime_head');
+    const shopbytype_desk_btn = document.querySelector('.ShopByType_head');
 
     const shopbyanime_container = document.querySelector('.shopbyanime_container_desk');
     const shopbytype_container = document.querySelector('.shopbytype_container_desk');
 
-    const expand_element_desktop = (parent, element, height) => {
-        element.style.display = 'block';
-        element.style.height = '0px';
+    const expand_element_desk = (btn, target) => {
+        shopby_container_desk.style.display = "grid";
+        target.style.display = "flex";
         setTimeout(() => {
-            element.style.height = height;
-            parent.textContent = parent.textContent.replace('+', '-');
+            btn.textContent = btn.textContent.replace('+', '-');
+            shopby_container_desk.style.height = "230px";
         }, 200);
     };
 
-    const contract_element_desktop = (parent, element) => {
-        element.style.height = '0px';
+    const contract_element_desk = (btn, target) => {
+        shopby_container_desk.style.height = "0px";
         setTimeout(() => {
-            element.style.display = 'none';
-            parent.textContent = parent.textContent.replace('-', '+');
+            btn.textContent = btn.textContent.replace('-', '+');
+            shopby_container_desk.style.display = "none";
+            target.style.display = "none";
         }, 200);
     };
 
-    const closeExpandedElements = () => {
-        if (shopbytype_container.style.display === 'block') {
-            contract_element_desktop(shopbytype_btn_desk, shopbytype_container);
-        }
-        if (shopbyanime_container.style.display === 'block') {
-            contract_element_desktop(shopbyanime_btn_desk, shopbyanime_container);
+    const handle_click_outside_desk = (event) => {
+        const isClickInsideContainersOrButtons = event.target.closest('.shopby_container_desktop') !== null || 
+                                                event.target.closest('.ShopByAnime_head') !== null ||
+                                                event.target.closest('.ShopByType_head') !== null;
+                                                
+        if (!isClickInsideContainersOrButtons && shopby_container_desk.style.display === "grid") {
+            contract_element_desk(shopbyanime_desk_btn, shopbyanime_container);
+            contract_element_desk(shopbytype_desk_btn, shopbytype_container);
         }
     };
 
-    shopbytype_btn_desk.addEventListener('click', () => {
-        if (shopbytype_container.style.display === 'block') {
-            contract_element_desktop(shopbytype_btn_desk, shopbytype_container);
+    document.addEventListener('click', handle_click_outside_desk);
+
+    
+    shopbyanime_desk_btn.addEventListener('click', () => {
+        if (shopbyanime_container.style.display === "flex") {
+            contract_element_desk(shopbyanime_desk_btn, shopbyanime_container);
         } else {
-            closeExpandedElements();
-            expand_element_desktop(shopbytype_btn_desk, shopbytype_container, 'auto');
+            if (shopbytype_container.style.display === "flex") {
+                contract_element_desk(shopbytype_desk_btn, shopbytype_container);
+                setTimeout(()=>{
+                    expand_element_desk(shopbyanime_desk_btn, shopbyanime_container);
+                }, 200)
+            } else {
+                expand_element_desk(shopbyanime_desk_btn, shopbyanime_container);
+            }
+            
         }
     });
 
-    shopbyanime_btn_desk.addEventListener('click', () => {
-        if (shopbyanime_container.style.display === 'block') {
-            contract_element_desktop(shopbyanime_btn_desk, shopbyanime_container);
+    shopbytype_desk_btn.addEventListener('click', () => {
+        if (shopbytype_container.style.display === "flex") {
+            contract_element_desk(shopbytype_desk_btn, shopbytype_container);
         } else {
-            closeExpandedElements();
-            expand_element_desktop(shopbyanime_btn_desk, shopbyanime_container, 'auto');
+            if (shopbyanime_container.style.display === "flex") {
+                contract_element_desk(shopbyanime_desk_btn, shopbyanime_container);
+                setTimeout(()=>{
+                    expand_element_desk(shopbytype_desk_btn, shopbytype_container);
+                }, 200)
+            } else {expand_element_desk(shopbytype_desk_btn, shopbytype_container);}
+            
         }
     });
 
-    document.addEventListener('click', (event) => {
-        const clickedElement = event.target;
-        if (
-            clickedElement !== shopbytype_btn_desk &&
-            !shopbytype_container.contains(clickedElement) &&
-            clickedElement !== shopbyanime_btn_desk &&
-            !shopbyanime_container.contains(clickedElement)
-        ) {
-            closeExpandedElements();
-        }
-    });
-
-    // Additional code for mobile navigation and other functionalities can be added here if needed.
+    
 });

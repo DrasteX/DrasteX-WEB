@@ -102,13 +102,21 @@ html {
                 outline: none;
                 white-space: nowrap;
                 border: none;
-    
+                cursor: pointer;
                 padding: 8px 15px;
                 border-radius: 10px;
                 background-color: #ff3737;
                 font-weight: bolder;
                 
-                color: rgb(255, 255, 255)
+                color: rgb(255, 255, 255);
+
+                &:hover {
+                    background-color: #ff1919;
+                    transition: all 100ms;
+                };
+                &:active {
+                    scale: 0.9;
+                }
             }
         }
     }
@@ -119,90 +127,61 @@ html {
         };
 
         & > div.shopby_container_desktop {
+            /* display: grid; */
+            /* height: 230px; */
+            display: none;
+            height: 0px;
+
+            transition: all ease 200ms;
+
+            grid-template-columns: auto auto;
+            justify-content: space-between;
+            grid-template-areas: 'Main' 'Ads';
+            overflow: hidden;
+            
+
             position: absolute;
             top: 60px;
             left: 50%;
             transform: translateX(-50%);
             width: 97%;
-            justify-self: center;
+            background-color: #222222;
+
             z-index: 10;
-            background-color: #292929;
-            font-family: Poppins;
-            Color: rgb(255, 255, 255);
-            border-radius: 20px;
-            
-            filter: drop-shadow(5px 5px 5px black);
+            border-radius: 25px;
 
-            & > div.shopbyanime_container_desk {
-                display: none;
-                transition: all 200ms;
-                height: 0px;
-                overflow: hidden;
-                
-                & > span {
-                        font-size: larger;
-                        font-weight: bolder;
-                        margin: 20px 30px;
-                        filter: drop-shadow(5px 5px 5px rgb(0, 0, 0));
-                    };
-                & > div.shopbyanime_content_desk {
-                    
-                    margin-top: 15px;
-                    margin-left: 40px;
-                    width:fit-content;
-                    column-gap: 30px;
-                    row-gap: 4px;
-                    height: 200px;
+            & > .shopbyanime_container_desk, & > .shopbytype_container_desk {
+                padding: 20px 40px;
+                color: white;
+                font-family: Poppins;
+                grid-area: Main;
 
-                    & > a {
-                        text-decoration: none;
-                        color: rgb(211, 211, 211);
-                        width: min-content;
-                        font-size: small;
-                        
-                    };
-                    
-                    display: flex;
-                    white-space: nowrap;
-                    flex-wrap: wrap;
-                    flex-direction: column;
-                }
-                
-            };
-            & > div.shopbytype_container_desk {
-                display: none;
-                height: 0px;
+                /* display: flex; */
                 transition: all ease 200ms;
-                overflow: hidden;
-                
+                display: none;
+                flex-wrap: nowrap;
+                flex-direction: column;
+                row-gap: 10px;
+
                 & > span {
-                        font-size: larger;
-                        font-weight: bolder;
-                        margin: 0px 30px;
-                        filter: drop-shadow(5px 5px 5px rgb(0, 0, 0));
-                    };
-                & > div.shopbytype_content_desk {
-                    margin-top: 15px;
-                    margin-left: 40px;
-                    width:fit-content;
-                    column-gap: 30px;
-                    row-gap: 4px;
+                    font-size: larger;
+                    font-weight: bolder;
+                    filter: drop-shadow(5px 5px 5px black);
+                };
+                & > div.shopbytype_content_desk, & > div.shopbyanime_content_desk {
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                    column-gap: 25px;
+
                     height: 150px;
 
                     & > a {
                         text-decoration: none;
-                        color: rgb(211, 211, 211);
-                        width: min-content;
-                        font-size: small;
-                        
-                    };
-                    
-                    display: flex;
-                    white-space: nowrap;
-                    flex-wrap: wrap;
-                    flex-direction: column;
+                        color:rgb(214, 214, 214);
+                        font-size: medium;
+                    }
                 }
-                
             }
         }
     }  
