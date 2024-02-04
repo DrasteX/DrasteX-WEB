@@ -106,6 +106,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
         }, 200);
     };
 
+    window.addEventListener('resize', ()=>{
+        contract_element_desk(shopbyanime_desk_btn, shopbyanime_container);
+        contract_element_desk(shopbytype_desk_btn, shopbytype_container);
+    })
+
     const handle_click_outside_desk = (event) => {
         const isClickInsideContainersOrButtons = event.target.closest('.shopby_container_desktop') !== null || 
                                                 event.target.closest('.ShopByAnime_head') !== null ||
