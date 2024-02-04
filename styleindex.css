@@ -11,32 +11,6 @@ body {
     margin: 0px;
     -webkit-tap-highlight-color: transparent;
 }
-.loading-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #1a1a1a;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.spinner {
-    border: 4px solid rgba(255, 255, 255, 0.1);
-    border-left-color: #333;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
 
 html {
     display: flex;
@@ -457,7 +431,9 @@ html {
         grid-template-rows: auto auto;
         grid-template-areas: 
         'Banner'
-        'Search';
+        'Search'
+        
+        ;
         gap: 30px;
         left: 0px;
         right: 0px;
@@ -475,6 +451,29 @@ html {
                 height: 400px;
                 overflow: hidden;
                 border-radius: 35px 200px 35px 35px;
+    
+                & > .dots_slide {
+                    position: absolute;
+                    bottom: 10px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    & > .dot {
+                        display: inline-block;
+                        width: 10px;
+                        height: 10px;
+                        background-color: #ffffff;
+                        filter:drop-shadow(3px 3px 3px black);
+                        border-radius: 50%;
+                        margin: 0 5px;
+                        cursor: pointer;
+                    }
+                    & > .dot.active {
+                        background-color: #333;
+                    }
+    
+                }
+                
+    
                 & > img.slide_image {
                     width: 100%;
                     filter: brightness(0.7);
@@ -482,58 +481,34 @@ html {
                     height: 100%;
                     object-fit: cover;
                     
-                }};
-    
-            & > .dots_slide {
-                position: absolute;
-                bottom: 10px;
-                left: 50%;
-                transform: translateX(-50%);
-                & > .dot {
-                    display: inline-block;
-                    width: 10px;
-                    height: 10px;
-                    background-color: #ffffff;
-                    filter:drop-shadow(3px 3px 3px black);
-                    border-radius: 50%;
-                    margin: 0 5px;
+                };
+                & > .prev_slide,
+                    .next_slide {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
                     cursor: pointer;
-                }
-                & > .dot.active {
-                    background-color: #333;
-                }
-
-            }
-            
-
-            
-            & > .prev_slide,
-                .next_slide {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                cursor: pointer;
-                filter:drop-shadow(3px 3px 2px);
-                z-index: 1;
-                & > img {
-                    width: 30px; 
-                    height: auto;
-                }
-            };
-
-            & > .prev_slide {
-                left: 40px;
-                & > img {
-                    transform: rotateY(180deg)
-                }
-                
-            };
-            
-            & > .next_slide {
-                right: 50px;
-            };
+                    filter:drop-shadow(3px 3px 2px);
+                    z-index: 1;
+                    & > img {
+                        width: 30px; 
+                        height: auto;
+                    }
+                };
     
-            
+                & > .prev_slide {
+                    left: 10px;
+                    & > img {
+                        transform: rotateY(180deg)
+                    }
+                    
+                };
+                
+                & > .next_slide {
+                    right: 50px;
+                };
+    
+            }
         };
     
     
@@ -697,21 +672,3 @@ html {
 
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
