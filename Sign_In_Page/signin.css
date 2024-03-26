@@ -13,7 +13,9 @@ body {
     
 }
 
-
+input::-ms-reveal, input::-ms-clear {
+        display: none;
+      }
 
 * {
     font-family: Poppins, sans-serif;
