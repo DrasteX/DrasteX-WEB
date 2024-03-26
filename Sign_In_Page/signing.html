@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <script src="signin.js"></script>
+    
+
+    <link rel="stylesheet" href="signin.css">
+    <link rel="website icon" href="../Assets/LOGO/Mark_WithoutBG.png">
+
+</head>
+<body>
+    <main>
+        <h1 class="main_title">SIGN <span id="main_title_switch_item">UP</span></h1>
+        <form class="sign_in_up">
+            <input autocomplete="on" placeholder="Email" id="Email" type="email">
+            <div class="Password_Holder">
+                <input autocomplete="on" placeholder="Password" id="Password" type="password">
+                <img src="../Assets/Components/Eye_icon.png">
+            </div>
+            <div class="Confirm_Password_Holder">
+                <input autocomplete="on" placeholder="Confirm Password" id="Confirm" type="password">
+                <img src="../Assets/Components/Eye_icon.png">
+            </div>
+            
+            <div class="Signing_Options">
+                <div class="Signing_Options_title">
+                    <hr> <span id="middletext">Or Sign Up Using</span> <hr>
+                </div>
+                <div class="Signing_Options_Items">
+                    <a href="#">
+                        <img src="../Assets/Components/Facebook.png">
+                    </a>
+                    <a href="#">
+                        <img src="../Assets/Components/Discord.png">
+                    </a>
+                    <a href="#">
+                        <img src="../Assets/Components/Google.png">
+                    </a>
+                </div>
+            </div>
+
+            <div class="twin_text">
+                <a href="#" id="left_hyper" onclick="switch_to_signin()">Login Here</a>
+                <a href="#" id="right_hyper">Need Help?</a>
+            </div>
+            <input id="Submit" type="submit" value="Sign Up">
+            
+
+        </form>
+        
+    </main>
+
+    
+    <script>
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        const maintitle = document.querySelector(".main_title");
+        const lefthyper = document.querySelector("#left_hyper");
+        const righthyper = document.querySelector("#right_hyper");
+        const middletext = document.querySelector("#middletext");
+        const confirmpass = document.querySelector(".Confirm_Password_Holder");
+        const uporin = document.querySelector("#main_title_switch_item");
+
+        async function switch_to_signin () {
+            // First we'll start with the Main Title "SIGN UP" on the top
+            if(uporin.textContent == "UP") {
+                for (let x=0;x<2;x++) {
+                uporin.textContent = uporin.textContent.slice(0, uporin.textContent.length-1)
+                await sleep(200)
+            }
+
+                await sleep(300)
+                uporin.textContent += "I";
+                await sleep(200)
+                uporin.textContent += "N"
+            
+             }
+
+
+             // Now we'll hide the Confirm Password input box
+             confirmpass.style.display = "none";
+
+
+             // Now we'll change both the Left and Right Hyperlink text as well as the Login Button text
+             for (let i = lefthyper.textContent.length ; i!=-1; i--) {
+                lefthyper.textContent = lefthyper.textContent.slice(0, i);
+                await sleep(200);
+             }
+             
+
+        }
+            
+
+        
+
+    </script>
+    
+</body>
+</html>

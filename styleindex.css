@@ -16,26 +16,44 @@ html {
     display: flex;
     justify-content: center;
 }
-/* width */
-::-webkit-scrollbar {
-    width: 3px;
-  };
 
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: transparent;
+img {
+    
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+
+::-webkit-scrollbar {
+    display: none;
   }
+
   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: rgb(36, 36, 36);
-    border-radius: 20px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
+  .scroller {
+    scroll-behavior: smooth;
+
+    scroll-snap-type:x mandatory;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 20px;
+    overflow-x: scroll;
+    cursor: grab;
+    
+    & > img {
+        scroll-snap-align: center;
+        height: 200px;
+        border-radius: 20px;
+    }
+}
+
+
+
+
 @media only screen and (min-width: 805px) {
     .header {
         display: grid;
@@ -170,7 +188,7 @@ html {
                 & > span {
                     font-size: larger;
                     font-weight: bolder;
-                    filter: drop-shadow(5px 5px 5px black);
+                    
                 };
                 & > div.shopbytype_content_desk, & > div.shopbyanime_content_desk {
                     display: flex;
@@ -188,9 +206,7 @@ html {
                 }
             }
         }
-    }  
-    
-    
+    }    
 }
 
 @media only screen and (max-width: 804px) {
