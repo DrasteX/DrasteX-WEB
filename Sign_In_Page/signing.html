@@ -60,9 +60,7 @@
 
     
     <script>
-        function sleep(ms) {
-            return new Promise(resolve => setTimeout(resolve, ms));
-        }
+        
 
         const maintitle = document.querySelector(".main_title");
         const lefthyper = document.querySelector("#left_hyper");
@@ -70,33 +68,29 @@
         const middletext = document.querySelector("#middletext");
         const confirmpass = document.querySelector(".Confirm_Password_Holder");
         const uporin = document.querySelector("#main_title_switch_item");
+        const submitbtn = document.querySelector("#Submit");
 
-        async function switch_to_signin () {
-            // First we'll start with the Main Title "SIGN UP" on the top
-            if(uporin.textContent == "UP") {
-                for (let x=0;x<2;x++) {
-                uporin.textContent = uporin.textContent.slice(0, uporin.textContent.length-1)
-                await sleep(200)
-            }
-
-                await sleep(300)
-                uporin.textContent += "I";
-                await sleep(200)
-                uporin.textContent += "N"
+        function switch_to_signin () {
             
-             }
+            uporin.textContent = "IN";
+            confirmpass.style.display = "none";
+            middletext.textContent = "Or Sign In Using";
+            lefthyper.textContent = "Register Here";
+            righthyper.textContent = "Forgot Password?";
+            submitbtn.value = "Login";
+            lefthyper.onclick = switch_to_signup;
 
+        }
 
-             // Now we'll hide the Confirm Password input box
-             confirmpass.style.display = "none";
-
-
-             // Now we'll change both the Left and Right Hyperlink text as well as the Login Button text
-             for (let i = lefthyper.textContent.length ; i!=-1; i--) {
-                lefthyper.textContent = lefthyper.textContent.slice(0, i);
-                await sleep(200);
-             }
-             
+        function switch_to_signup () {
+            
+            uporin.textContent = "UP";
+            confirmpass.style.display = "flex";
+            middletext.textContent = "Or Sign Up Using";
+            lefthyper.textContent = "Login Here";
+            righthyper.textContent = "Need Help?";
+            submitbtn.value = "Sign Up";
+            lefthyper.onclick = switch_to_signin;
 
         }
             
