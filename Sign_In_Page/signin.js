@@ -15,12 +15,13 @@ document.addEventListener('DOMContentLoaded', ()=>{
         lefthyper.textContent = "Register Here";
         righthyper.textContent = "Forgot Password?";
         submitbtn.value = "Login";
+        document.querySelector("#Confirm").removeAttribute("required");
         lefthyper.onclick = switch_to_signup;
     
     }
     
     function switch_to_signup () {
-        
+        document.querySelector("#Confirm").setAttribute("required",'');
         uporin.textContent = "UP";
         confirmpass_holder.style.display = "flex";
         middletext.textContent = "Or Sign Up Using";
