@@ -151,7 +151,8 @@ h1 {
     padding: 15px;
     font-size: 25px;
     border-radius: 15px;
-    margin-top: 25px
+    margin-top: 25px;
+    cursor: pointer;
 }
 
 

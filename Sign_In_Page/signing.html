@@ -22,12 +22,12 @@
         <form class="sign_in_up">
             <input autocomplete="on" placeholder="Email" id="Email" type="email">
             <div class="Password_Holder">
-                <input autocomplete="on" placeholder="Password" id="Password" type="password">
-                <img src="../Assets/Components/Eye_icon.png">
+                <input required autocomplete="on" placeholder="Password" id="Password" type="password">
+                <img id="passvisibility" src="../Assets/Components/Eye_icon.png">
             </div>
             <div class="Confirm_Password_Holder">
-                <input autocomplete="on" placeholder="Confirm Password" id="Confirm" type="password">
-                <img src="../Assets/Components/Eye_icon.png">
+                <input required autocomplete="on" placeholder="Confirm Password" id="Confirm" type="password">
+                <img id="confirmpassvisibility" src="../Assets/Components/Eye_icon.png">
             </div>
             
             <div class="Signing_Options">
@@ -48,7 +48,7 @@
             </div>
 
             <div class="twin_text">
-                <a href="#" id="left_hyper" onclick="switch_to_signin()">Login Here</a>
+                <a href="#" id="left_hyper">Login Here</a>
                 <a href="#" id="right_hyper">Need Help?</a>
             </div>
             <input id="Submit" type="submit" value="Sign Up">
@@ -59,44 +59,7 @@
     </main>
 
     
-    <script>
-        
-
-        const maintitle = document.querySelector(".main_title");
-        const lefthyper = document.querySelector("#left_hyper");
-        const righthyper = document.querySelector("#right_hyper");
-        const middletext = document.querySelector("#middletext");
-        const confirmpass = document.querySelector(".Confirm_Password_Holder");
-        const uporin = document.querySelector("#main_title_switch_item");
-        const submitbtn = document.querySelector("#Submit");
-
-        function switch_to_signin () {
-            
-            uporin.textContent = "IN";
-            confirmpass.style.display = "none";
-            middletext.textContent = "Or Sign In Using";
-            lefthyper.textContent = "Register Here";
-            righthyper.textContent = "Forgot Password?";
-            submitbtn.value = "Login";
-            lefthyper.onclick = switch_to_signup;
-
-        }
-
-        function switch_to_signup () {
-            
-            uporin.textContent = "UP";
-            confirmpass.style.display = "flex";
-            middletext.textContent = "Or Sign Up Using";
-            lefthyper.textContent = "Login Here";
-            righthyper.textContent = "Need Help?";
-            submitbtn.value = "Sign Up";
-            lefthyper.onclick = switch_to_signin;
-
-        }
-            
-
-        
-
+    <script src="signin.js">
     </script>
     
 </body>
