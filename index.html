@@ -4,148 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DrasteX</title>
-    <link rel="website icon" href="Assets/LOGO/Mark_WithoutBG.png">
 
-    <link rel="stylesheet" href="styleindex.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+
 </head>
 <body>
-    <div class="overlays">
-        <div class="navigation_menu_mob_container">
-            <div class="close_btn">
-                <img src="Assets/Components/Arrow_Icon_White.png">
-                <span>Close Menu</span>
-            </div>
-
-            <div class="navmenu_item">
-                <a href="index.html">Home</a>
-            </div>
-
-            <div class="navmenu_item">
-                <a href="#">Catalog</a>
-            </div>
-
-            <div class="navmenu_item">
-                <div class="shopbytype_title_mob">Shop by Type +</div>
-                <div class="shopbytype_content_mob">
-
-                    <a href="#">Hoodies</a>
-                    <a href="#">Sweatshirts</a>
-                    <a href="#">T-Shirts</a>
-                    <a href="#">Caps</a>
-                    <a href="#">Trousers</a>
-                    <a href="#">Keychains</a>
-                    <a href="#">Posters</a>
-                    <a href="#">Stickers</a>
-                    <a href="#">Plushies</a>
-                    
-                </div>
-            </div>
-
-            <div class="navmenu_item">
-                <div class="shopbyanime_title_mob">Shop by Anime +</div>
-                <div class="shopbyanime_content_mob">
-                    
-                    <a href="#">Attack On Titan</a>
-                    <a href="#">One Piece</a>
-                    <a href="#">Bleach</a>
-                    <a href="#">Naruto</a>
-                    <a href="#">Jujutsu Kaisen</a>
-                    <a href="#">Demon Slayer</a>
-                    <a href="#">Solo Leveling</a>
-                    <a href="#">Dr. Stone</a>
-                    <a href="#">Chainsaw Man</a>
-                    <a href="#">Tokyo Ghoul</a>
-                    <a href="#">Tokyo Revengers</a>
-                    <a href="#">Haikyuu</a>
-                    <a href="#">Dragon Ball Z</a>
-                    
-                </div>
-            </div>
-
-            <div class="navmenu_item">
-                <a href="#">Reviews</a>
-            </div>
-
-            <div class="navmenu_item">
-                <a href="#">Contact Us</a>
-            </div>
-            
+    <header>
+        <div class="left_head">
+            <img id="menu_btn" src="../Assets/Components/Menu_Button_White.png">
+            <img id="logo" src="../Assets/LOGO/Logo_withoutBG (FOR DARK BG).png">
         </div>
 
-        <div class="shopby_container_desktop">
-
-            <div class="shopbyanime_container_desk">
-                <span>Shop By Anime</span>
-                <div class="shopbyanime_content_desk">
-                    
-                    <a href="#">Attack On Titan</a>
-                    <a href="#">One Piece</a>
-                    <a href="#">Bleach</a>
-                    <a href="#">Naruto</a>
-                    <a href="#">Jujutsu Kaisen</a>
-                    <a href="#">Demon Slayer</a>
-                    <a href="#">Solo Leveling</a>
-                    <a href="#">Dr. Stone</a>
-                    <a href="#">Chainsaw Man</a>
-                    <a href="#">Tokyo Ghoul</a>
-                    <a href="#">Tokyo Revengers</a>
-                    <a href="#">Haikyuu</a>
-                    <a href="#">Dragon Ball Z</a>
-                    
-                </div>
+        <div class="nav_head">
+            <button id="close_menu_btn"> <pre>🞀    Close Menu</pre> </button>
+            <a href="#"> Catalog </a>
+            <a id="shopbyanime_btn"> 🢖 Shop By Anime </a>
+            <div class="shopbyanime_inner">
+                <h3>Shop by Anime </h3>
+                <ul>
+                    <li>One Piece</li>
+                    <li>Jujutsu Kaisen</li>
+                    <li>Chainsaw Man</li>
+                    <li>Hunter X Hunter</li>
+                    <li>Attack On Titan</li>
+                    <li>Naruto</li>
+                    <li>Bleach</li>
+                    <li>Dragon Ball Z</li>
+                    <li>Demon Slayer</li>
+                    <li>Solo Leveling</li>
+                </ul>
             </div>
-
-            <div class="shopbytype_container_desk">
-                <span>Shop By Type</span>
-                <div class="shopbytype_content_desk">
-                    
-                    <a href="#">Hoodies</a>
-                    <a href="#">Sweatshirts</a>
-                    <a href="#">T-Shirts</a>
-                    <a href="#">Caps</a>
-                    <a href="#">Trousers</a>
-                    <a href="#">Keychains</a>
-                    <a href="#">Posters</a>
-                    <a href="#">Stickers</a>
-                    <a href="#">Plushies</a>
-                    
-                </div>
+            <a id="shopbytype_btn"> 🢖 Shop By Type </a>
+            <div class="shopbytype_inner">
+                <h3>Shop by Type </h3>
+                <ul>
+                    <li>T-Shirts</li>
+                    <li>Hoodies</li>
+                    <li>Caps</li>
+                    <li>Key Chains</li>
+                    <li>Rings</li>
+                    <li>Posters</li>
+                    <li>Stickers</li>
+                    <li>Sweatshirts</li>
+                </ul>
             </div>
-
+            <a href="#"> Review </a>
+            <a href="#"> Contact Us </a>
         </div>
-    </div>
-
-    <div class="content">
-        <div class="header">
-            <div class="left_header">
-                <img class="hammenu_btn" src="Assets/Components/Menu_Button_White.png">
-                <a href="index.html" class="Branding">
-                    <img src="Assets/LOGO/Logo_withoutBG (FOR DARK BG).png">
-                </a>
-            </div>
-            <div class="mid_header">
-
-                <div class="Catalog_head">Catalog</div>
-                <div class="ShopByType_head">Shop By Type +</div>
-                <div class="ShopByAnime_head">Shop By Anime +</div>
-                <div class="Reviews_head">Review</div>
-                <div class="Contact_head">Contact Us</div>
-
-            </div>
-            <div class="right_header">
-                <button class="signin" onclick="location.href='Sign_In_Page/signing.html'">Sign In</button>
-            </div>
+        
+        <div class="right_head">
+            <button id="signin_btn"> Sign In </button>
         </div>
+    </header>
 
-
-        <div class="scroller">
-            <img src="https://th.bing.com/th/id/OIP.DXrz4aUvhmYkWtNkY-JOfgHaHh?w=679&h=690&rs=1&pid=ImgDetMain">
-            <img src="https://m.media-amazon.com/images/I/A13usaonutL._CLa%7C2140,2000%7C918PptCe-VL.png%7C0%2C0%2C2140%2C2000%2B0.0%2C0.0%2C2140.0%2C2000.0_AC_UL1500_.png">
-            
-            
-        </div>
-    </div>
+    
 </body>
-
-<script src="indexjs.js"></script>
 </html>
