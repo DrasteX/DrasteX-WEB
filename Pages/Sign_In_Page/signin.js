@@ -44,10 +44,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
     function pass_vb_switch(ele, btn){
         if (ele.type == "password") {
             ele.type = "text";
-            btn.src = "..\\Assets\\Components\\Eye_crossed_icon.png";
+            btn.src = "..\\..\\Assets\\Components\\Eye_crossed_icon.png";
         } else {
             ele.type = "password";
-            btn.src = "..\\Assets\\Components\\Eye_icon.png";
+            btn.src = "..\\..\\Assets\\Components\\Eye_icon.png";
         }
     }
 
