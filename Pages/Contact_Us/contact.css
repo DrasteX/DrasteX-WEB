@@ -1,0 +1,54 @@
+a {
+    color: white;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    margin: 30px 30px 10px 30px;
+    
+    font-size: xxx-large;
+}
+
+p#info {
+    color: rgb(224, 224, 224);
+    margin: 0px 30px;
+    text-align: center;
+}
+
+
+.contact_options {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    margin: 30px
+}
+
+.email_us, .call_us, .join_dc {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    background-color: #272727;
+    max-width: 876px;
+    width: 100%;
+    min-width: 280px;
+    padding: 15px 25px;
+    border-radius: 20px;
+    gap: 20px;
+    
+    
+    align-self: center;
+    & > img {
+        height: 50px;
+    }
+
+    & > a {
+        white-space: nowrap;
+        & > span {
+            color: rgb(255, 0, 0);
+            text-decoration: underline;
+            font-size: small;
+        }
+    }
+}

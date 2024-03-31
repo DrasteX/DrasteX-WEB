@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     header.innerHTML = `<header>
     <div class="left_head">
         <img id="menu_btn" src="../../Assets/Components/Menu_Button_White.png">
-        <img id="logo" src="../../Assets/LOGO/LOGO_forDarkBG.png">
+        <img onclick="location.href='../Index/index.html'" id="logo" src="../../Assets/LOGO/LOGO_forDarkBG.png">
     </div>
 
     <div class="nav_head">
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
             </ul>
         </div>
         <a href="#"> Review </a>
-        <a href="#"> Contact Us </a>
+        <a href="../Contact_Us/contact.html"> Contact Us </a>
     </div>
     
     <div class="right_head">
@@ -254,7 +254,7 @@ header {
 </style>
 `
 
-    document.body.appendChild(header.content);
+    document.body.insertBefore(header.content, document.body.firstChild)
 
 
 
