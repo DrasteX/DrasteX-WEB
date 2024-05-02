@@ -1,8 +1,18 @@
+html {
+    min-height: 100%;
+    position: relative;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
 main {
     max-width: 1200px;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+    margin-bottom: 320px;
 }
 
 
@@ -71,7 +81,100 @@ main {
         }
     }
 }
+.Scroller_Main {
+    color: white;
+    margin: 40px 20px;
+    & > .Scroller_container {
+        display: grid;
+        grid-template-columns: min-content auto min-content;
+        & > .scroller_content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+            overflow-x: scroll;
+            
 
+            & > img {
+                height: 170px;
+                min-width: 170px;
+                object-fit: cover;
+                border-radius: 8px;
+                
+
+            }
+        }
+        & > .left_control_scroller, .right_control_scroller {
+            cursor: pointer;
+            height: 170px;
+            width: 60px;
+            border-radius: 8px;
+            background-color: #1d1d1d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            & > img {
+                height: 40px;
+            }
+        }
+        & > .left_control_scroller {
+            margin-right: 20px;
+            & > img {
+                transform: rotate(180deg);
+            }
+        }
+        & > .right_control_scroller {
+            margin-left: 20px;
+        }
+
+    }
+}
+
+footer {
+    background-color: #141414;
+    position:absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    
+}
+.foot_container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    
+    padding: 20px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    & > .logo_footer {
+        & > img {
+            height: 60px;
+        }
+    }
+    & > .links_footer {
+        display: flex;
+        gap: 40px;
+        margin: 0px 20px 40px 20px;
+        color: white;
+        & > .Explore_links_footer, .Quick_links_footer {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            
+            & > h5{
+                font-size: 17px;
+                font-weight: 600;
+                margin: 10px 0px;
+            }
+            & > a {
+                color: white;
+                font-size: 17px;
+            }
+        }
+    }
+}
 @media screen and (max-width: 900px) {
     .top_banner {
         margin: 30px 0px;
@@ -83,4 +186,21 @@ main {
             bottom: 5px
         }
     }
-}
+
+    .Scroller_Main {
+        & > .Scroller_container {
+            & > .left_control_scroller, .right_control_scroller {
+                width: 45px;
+                height: 120px;
+                
+                
+            }
+            & > .scroller_content {
+                & > img {
+                    height: 120px;
+                    min-width: 120px;
+                }
+                gap: 20px;
+            }
+    }
+}}
