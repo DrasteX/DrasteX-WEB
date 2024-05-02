@@ -90,6 +90,7 @@ header {
     flex-direction: row;
     align-items: center;
     padding: 7px 20px;
+    
 }
 
     /* Left side of Header  */
@@ -141,7 +142,7 @@ header {
     flex-wrap: nowrap;
     white-space: nowrap;
     gap: 35px;
-    
+    z-index: 10000;
 
     & > a {
         color: white;

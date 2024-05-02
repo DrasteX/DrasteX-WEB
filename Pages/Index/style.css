@@ -1,0 +1,86 @@
+main {
+    max-width: 1200px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+
+.top_banner {
+    
+    position: relative;
+    height: 500px;
+    margin: 30px 50px;
+    background-image: url(../../Assets/Components/SUKUNA_BLACK_TSHIRT_MOCKUP.png);
+    background-position: center;
+    border-radius: 45px;
+    background-size: cover;
+    & > .text_area_top_banner {
+    
+        position: absolute;
+        right: 40px;
+        bottom: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        z-index: 1;
+    
+        & > h1, h3 {
+            white-space: nowrap;
+            color: white;
+            margin: 0px;
+            text-align: right;
+        }
+        & > h3 {
+            color: #FF5959;
+            margin-bottom: 20px;
+            transform: translateY(-7px)
+        }
+    
+        & > button {
+            background-color: #202020;
+            color: white;
+            max-width: 360px;
+            width: 100%;
+            padding: 10px 20px;
+            border-radius: 15px;
+            border: none;
+    
+            display: grid;
+            grid-template-columns: 40px auto 15px;
+            align-items: center;
+            
+    
+            & > span {
+                font-weight: bold;
+                text-align: left;
+                font-size: 18px;
+            }
+            
+    
+            & > img:first-of-type {
+                height: 30px;
+                
+                justify-self: left;
+            }
+            & > img:last-of-type {
+                height: 20px;
+                
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .top_banner {
+        margin: 30px 0px;
+        border-radius: 0px;
+        height: 300px;
+        & > .text_area_top_banner {
+            scale: 0.7;
+            right: 0px;
+            bottom: 5px
+        }
+    }
+}
