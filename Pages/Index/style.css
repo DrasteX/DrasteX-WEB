@@ -88,6 +88,7 @@ main {
         display: grid;
         grid-template-columns: min-content auto min-content;
         & > .scroller_content {
+            scroll-behavior:smooth;
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -100,12 +101,14 @@ main {
                 min-width: 170px;
                 object-fit: cover;
                 border-radius: 8px;
+                user-select: none;
                 
 
             }
         }
         & > .left_control_scroller, .right_control_scroller {
             cursor: pointer;
+            user-select: none;
             height: 170px;
             width: 60px;
             border-radius: 8px;
