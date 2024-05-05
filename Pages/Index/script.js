@@ -1,12 +1,20 @@
 document.addEventListener("DOMContentLoaded",()=>{
-    const scrl_right_scroller = document.querySelector(".right_control_scroller");
-    const scrl_left_scroller = document.querySelector(".left_control_scroller");
-    const scrl_content_scroller = document.querySelector(".scroller_content");
-    scrl_right_scroller.addEventListener("mousedown",()=>{
-        scrl_content_scroller.scrollLeft += 200;
-    })
-    
-    scrl_left_scroller.addEventListener("mousedown",()=>{
-        scrl_content_scroller.scrollLeft -= 200;
-    })
+    function Scroll_Functionality(scroller, left, right){
+        right.addEventListener("mousedown",()=>{
+            scroller.scrollLeft += 200;
+        })
+        
+        left.addEventListener("mousedown",()=>{
+            scroller.scrollLeft -= 200;
+        })
+    }
+
+    // NEW RELEASES
+    Scroll_Functionality(document.getElementById("NEW_RELEASES_SCROLLER"), document.getElementById("NEW_RELEASES_LEFT"), document.getElementById("NEW_RELEASES_RIGHT"));
+    // FEATURED PRODUCTS
+    Scroll_Functionality(document.getElementById("FEATURED_PRODUCTS_SCROLLER"), document.getElementById("FEATURED_PRODUCTS_LEFT"), document.getElementById("FEATURED_PRODUCTS_RIGHT"));
+    // SHOP BY ANIME
+    Scroll_Functionality(document.getElementById("SHOP_BY_ANIME_SCROLLER"), document.getElementById("SHOP_BY_ANIME_LEFT"), document.getElementById("SHOP_BY_ANIME_RIGHT"));
+    // SHOP BY TYPE
+    Scroll_Functionality(document.getElementById("SHOP_BY_TYPE_SCROLLER"), document.getElementById("SHOP_BY_TYPE_LEFT"), document.getElementById("SHOP_BY_TYPE_RIGHT"));
 })
