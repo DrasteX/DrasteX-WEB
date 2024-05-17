@@ -22,7 +22,7 @@ main {
     position: relative;
     height: 500px;
     margin: 30px 50px;
-    background-image: url(../../Assets/Components/SUKUNA_BLACK_TSHIRT_MOCKUP.png);
+    background-image: url(../../Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png);
     background-position: center;
     border-radius: 45px;
     background-size: cover;
@@ -82,6 +82,10 @@ main {
     }
 }
 .Scroller_Main {
+    & > h1 {
+        text-align: center;
+        font-size: 25px;
+    }
     color: white;
     margin: 40px 20px;
     & > .Scroller_container {
@@ -96,12 +100,31 @@ main {
             overflow-x: scroll;
             
 
-            & > img {
-                height: 170px;
-                min-width: 170px;
+            & > div.SCROLLER_BANNER {
+                height: 300px;
+                min-width: 200px;
                 object-fit: cover;
                 border-radius: 8px;
                 user-select: none;
+                position: relative;
+                display: grid;
+                justify-content: center;
+                align-items: center;
+                grid-template-columns: auto;
+                grid-template-rows: auto;
+                
+                & > img.BGIMG_SCROLLER_BANNER {
+                    filter:brightness(0.4);
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 30px;
+                    object-fit: cover;
+                    position: absolute;
+                }
+                & > img.LOGOIMG_SCROLLER_BANNER {
+                    width: 150px;
+                    z-index: 10;
+                }
                 
 
             }
@@ -109,7 +132,7 @@ main {
         & > .left_control_scroller, .right_control_scroller {
             cursor: pointer;
             user-select: none;
-            height: 170px;
+            min-height: 300px;
             width: 60px;
             border-radius: 8px;
             background-color: #1d1d1d;
@@ -194,14 +217,18 @@ footer {
         & > .Scroller_container {
             & > .left_control_scroller, .right_control_scroller {
                 width: 45px;
-                height: 120px;
-                
-                
+                min-height: 200px;
             }
             & > .scroller_content {
-                & > img {
-                    height: 120px;
+                & > div.SCROLLER_BANNER {
+                    height:200px;
                     min-width: 120px;
+                    & > img.LOGOIMG_SCROLLER_BANNER {
+                        width: 90px;
+                    }
+                    & > img.BGIMG_SCROLLER_BANNER {
+                        border-radius: 15px;
+                    }
                 }
                 gap: 20px;
             }
