@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DrasteX</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link rel="website icon" href="../../Assets/LOGO/Mark_WithoutBG.png">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    
+
+</head>
+<body>
+    <script src="../Custom_Elements/headerimport.js"></script>
+
+    <main>
+        <div class="navi_bar_usermenu_main">
+            <a>
+                <img src="../../Assets/Components/wishlist.png">
+                <span>WISHLIST</span>
+            </a>
+            <a>
+                <img src="../../Assets/Components/cart_menu_icon.png">
+                <span>CART</span>
+            </a>
+            <a>
+                <img src="../../Assets/Components/checkmark.png">
+                <span>ORDERS</span>
+            </a>
+            <a>
+                <img src="../../Assets/Components/truck_track.png">
+                <span>TRACK ORDERS</span>
+            </a>
+            <a>
+                <img src="../../Assets/Components/settings.png">
+                <span>SETTINGS</span>
+            </a>
+
+        </div>
+    </main>
+
+    <footer>
+        <style>footer {
+            background-color: #141414;
+            position:absolute;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            
+        }
+        .foot_container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+        
+            padding: 20px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            & > .logo_footer {
+                & > img {
+                    height: 60px;
+                }
+            }
+            & > .links_footer {
+                display: flex;
+                gap: 40px;
+                margin: 0px 20px 40px 20px;
+                color: white;
+                & > .Explore_links_footer, .Quick_links_footer {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    
+                    & > h5{
+                        font-size: 17px;
+                        font-weight: 600;
+                        margin: 10px 0px;
+                    }
+                    & > a {
+                        color: white;
+                        font-size: 17px;
+                    }
+                }
+            }
+        }</style>
+        <div class="foot_container">
+            <div class="logo_footer">
+                <img src="../../Assets/LOGO/LOGO_forDarkBG.png" alt="LOGO">
+            </div>
+            <div class="links_footer">
+                <div class="Explore_links_footer">
+                    <h5>Explore</h5>
+                    <a href="#">Home</a>
+                    <a href="#">Catalog</a>
+                    <a href="#">Shop By Anime</a>
+                    <a href="#">Shop By Type</a>
+                </div>
+                <div class="Quick_links_footer">
+                    <h5>Quick Links</h5>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Contact Us</a>
+                </div>
+            </div>
+        </div>
+
+        
+    </footer>
+
+</body>
+</html>

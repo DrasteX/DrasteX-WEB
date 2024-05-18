@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link rel="website icon" href="../../Assets/LOGO/Mark_WithoutBG.png">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <script src="../Custom_Elements/headerimport.js"></script>
+    <main>
+        <div class="Left_Area_PDUCT">
+            <span class="product_name">PRODUCT NAME</span>
+            <span class="colour_detail">Colour : Black</span>
+            <div class="Product_Info_PDUCT">
+                <img src="../../Assets/Components/Arrow.png">
+                <span>Product Information</span>
+            </div>
+            <div class="Size_Btns_PDUCT">
+                <span>SELECT SIZE</span>
+                <div class="btns_sizes_inner_PDUCT">
+                    <button id="small_size">S</button>
+                    <button id="medium_size">M</button>
+                    <button id="large_size">L</button>
+                    <button id="extra_large_size">XL</button>
+                    <button id="extra_extra_large_size">XXL</button>
+                    <button id="extra_extra_large_size">XXXL</button>
+                </div>
+            </div>
+            <span class="price_text_PDUCT">INR 699.00</span>
+            <div class="buyandcart_btns_PDUCT">
+                <button class="add_to_cart_button">
+                    <img src="../../Assets/Components/Cart_icon.png">
+                    <span>ADD TO<br> CART</span>
+                </button>
+                <button class="buy_button">
+                    BUY NOW!
+                </button>
+                
+            </div>
+            <div class="sizechart_container">
+                <div id="sizechart_heading"><img src="../../Assets/Components/sizechart.png"> <span>Size Chart</span></div>
+                <div class="sizechart_table">
+                <span id="heading_sizechart">Size</span> <span id="bold_sizechart">S</span> <span id="bold_sizechart">M</span> <span id="bold_sizechart">L</span> <span id="bold_sizechart">XL</span> <span id="bold_sizechart">XXL</span> <span id="bold_sizechart">XXXL</span>
+                <span id="heading_sizechart">Chest (inches)</span> <span>43</span> <span>45</span> <span>47</span> <span>49</span> <span>51</span> <span>53</span>
+                <span id="heading_sizechart">Length (inches)</span> <span>28.5</span> <span>29</span> <span>29.5</span> <span>30</span> <span>30.5</span> <span>31</span>
+                </div>
+            </div>
+            
+        </div>
+        <div class="Mid_Area_PDUCT">
+            <img class="main" src="../../Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png">
+            <div class="remain">
+                <img src="../../Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png">
+                <img src="../../Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png">
+                <img src="../../Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png">
+                <img src="../../Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png">
+                <img src="../../Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png">
+            </div>
+        </div>
+        <div class="Right_Area_PDUCT">
+            <div class="Reviews_Container">
+                <span>REVIEWS</span>
+            </div>
+            <div class="Suggestion_Container">
+                <span>SUGGESTIONS</span>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <style>footer {
+            background-color: #141414;
+            position:absolute;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            
+        }
+        .foot_container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+        
+            padding: 20px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            & > .logo_footer {
+                & > img {
+                    height: 60px;
+                }
+            }
+            & > .links_footer {
+                display: flex;
+                gap: 40px;
+                margin: 0px 20px 40px 20px;
+                color: white;
+                & > .Explore_links_footer, .Quick_links_footer {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    
+                    & > h5{
+                        font-size: 17px;
+                        font-weight: 600;
+                        margin: 10px 0px;
+                    }
+                    & > a {
+                        color: white;
+                        font-size: 17px;
+                    }
+                }
+            }
+        }</style>
+        <div class="foot_container">
+            <div class="logo_footer">
+                <img src="../../Assets/LOGO/LOGO_forDarkBG.png" alt="LOGO">
+            </div>
+            <div class="links_footer">
+                <div class="Explore_links_footer">
+                    <h5>Explore</h5>
+                    <a href="#">Home</a>
+                    <a href="#">Catalog</a>
+                    <a href="#">Shop By Anime</a>
+                    <a href="#">Shop By Type</a>
+                </div>
+                <div class="Quick_links_footer">
+                    <h5>Quick Links</h5>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Contact Us</a>
+                </div>
+            </div>
+        </div>
+
+        
+    </footer>
+</body>
+</html>

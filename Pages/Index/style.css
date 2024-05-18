@@ -157,50 +157,7 @@ main {
     }
 }
 
-footer {
-    background-color: #141414;
-    position:absolute;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    
-}
-.foot_container {
-    display: flex;
-    justify-content: space-between;
-    max-width: 1200px;
 
-    padding: 20px;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    & > .logo_footer {
-        & > img {
-            height: 60px;
-        }
-    }
-    & > .links_footer {
-        display: flex;
-        gap: 40px;
-        margin: 0px 20px 40px 20px;
-        color: white;
-        & > .Explore_links_footer, .Quick_links_footer {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            
-            & > h5{
-                font-size: 17px;
-                font-weight: 600;
-                margin: 10px 0px;
-            }
-            & > a {
-                color: white;
-                font-size: 17px;
-            }
-        }
-    }
-}
 @media screen and (max-width: 900px) {
     .top_banner {
         margin: 0px 0px;

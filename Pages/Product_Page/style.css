@@ -1,0 +1,209 @@
+html {
+    min-height: 100%;
+    position: relative;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    max-width: 1200px;
+    justify-content: center;
+    
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 40px 20px 500px 20px;
+    display: grid;
+    grid-template-columns: min-content min-content min-content;
+    grid-template-rows: min-content min-content min-content;
+
+    gap: 50px;
+    width: 100%;
+}
+
+
+div.Left_Area_PDUCT {
+    & > span.product_name {
+        color: white;
+        font-weight: bolder;
+        font-size: 30px;
+        display: block;  
+        margin-bottom: -7px;
+    }
+    & > span.colour_detail {
+        color: whitesmoke;
+        margin-left: 10px;
+    }
+    & > .Product_Info_PDUCT {
+        & > img {
+            height: 15px;
+            transform: rotate(90deg);
+        }
+        & > span {
+            color: white;
+        }
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+        background-color: #232323;
+        width: min-content;
+        white-space: nowrap;
+        padding: 4px 20px 4px 15px;
+        border-radius: 5px;
+        margin: 25px 0px;
+    }
+    & > .Size_Btns_PDUCT {
+        color: white;
+        font-weight: 600;
+        font-size: 17px;
+        margin-bottom: 25px;
+        & > div.btns_sizes_inner_PDUCT {
+            & > button {
+                background-color: #222222;
+                border: none;
+                color: white;
+                padding: 5px 13px;
+                border-radius: 4px;
+                font-weight: 500;
+            }
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            margin-top: 7px;
+        }
+    }
+    & > span.price_text_PDUCT {
+        font-weight: bolder;
+        color: #FF5757;
+        font-size: 20px;
+    }
+    & > div.buyandcart_btns_PDUCT {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        margin-top: 25px;
+
+        & > button.add_to_cart_button {
+            background-color: #242424;
+            border: none;
+            color: white;
+            font-weight: bold;
+            gap: 12px;
+            text-align: left;
+            padding: 8px 25px 8px 17px;
+            font-size: 12px;
+            border-radius: 7px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            & > img {
+                height: 41px;
+            }
+        }
+        & > button.buy_button {
+            background-color: red;
+            color: white;
+            font-weight: bolder;
+            border: none;
+            font-size: 20px;
+            padding: 15px 50px;
+            border-radius: 10px;
+
+        }
+    }
+    & > div.sizechart_container {
+        margin-top: 25px;
+        & > div#sizechart_heading {
+            color: white;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 13px;
+            margin-bottom: 10px;
+            & > img {
+                height: 20px;
+            }
+        }
+        & > div.sizechart_table {
+            background-color: #232323;
+            color: white;
+            font-size: small;
+            display: grid;
+            grid-template-columns: repeat(7, min-content);
+            grid-template-rows: repeat(3, min-content);
+            row-gap: 7px;
+            column-gap: 13px;
+            width: min-content;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-align: center;
+            white-space: nowrap;
+            & > #heading_sizechart {
+                text-align: left;
+                font-weight: bold;
+            }
+            & > #bold_sizechart {
+                font-weight: bold;
+            }
+        } 
+    }
+}
+
+div.Mid_Area_PDUCT {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    & > img.main {
+        height: 400px;
+        width: 400px;
+        object-fit: cover;
+        border-radius: 30px;
+    }
+    & > div.remain {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+        & > img {
+            height: 70px;
+            min-width: 70px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+    }
+}
+
+div.Right_Area_PDUCT {
+    
+    & > div.Reviews_Container {
+        background-color: #232323;
+        padding: 18px 23px;
+        border-radius: 20px;
+        width: 270px;
+        height: 320px;
+        box-sizing: border-box;
+        & > span {
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+    }
+    & > div.Suggestion_Container {
+        margin-top: 20px;
+        background-color: #232323;
+        padding: 18px 23px;
+        border-radius: 20px;
+        width: 270px;
+        height: 320px;
+        box-sizing: border-box;
+        & > span {
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+    }
+}
+
