@@ -17,7 +17,9 @@ main {
     gap: 50px;
     width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    gap: 10px;
 }
 
 
@@ -61,3 +63,68 @@ div.navi_bar_usermenu_main {
     }
 }
 
+div.page_main_container {
+    width: 100%;
+    & > h1 {
+        color: white;
+        font-size: 40px;
+        margin-bottom: 40px;
+    }
+    & > div.wishlist_container_with_recomms {
+        & > div.wishlist_main_container {
+            & > div.wishlist_item {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                align-items: center;
+                gap: 30px;
+                & > div.wishlist_item_main_cont {
+                    & > #title_wishlist_item {
+                        color: white;
+                        font-weight: 700;
+                        font-size: 20px;
+                    }
+                    & > .wishlist_item_colour_size_share_delete_container {
+                        display: flex;
+                        flex-direction: row;
+                        margin-top: 10px;
+                        margin-bottom: 15px;
+                        align-items: center;
+                        justify-content: space-between;
+                        & > div.sizeandcolor_wishlist {
+                            display: flex;
+                            flex-direction: row;
+                            gap: 10px;
+                            & > span {
+                                color: white;
+                                font-weight: bold;
+                                background-color: #222222;
+                                padding: 5px 10px;
+                                border-radius: 5px;
+                            }
+                        }
+                        & > div.shareanddelete_wishlist {
+                            display: flex;
+                            flex-direction: row;
+                            gap: 20px;
+                            & > img {
+                                height: 25px;
+                            }
+                        }
+                    }
+                    & > .price_text_wishlist {
+                        color: #DC4B4B;
+                        font-weight: bold;
+                        font-size: 20px;
+                    }
+                }
+                & > img.item_image_wishlist {
+                    height: 150px;
+                    min-width: 150px;
+                    object-fit: cover;
+                    border-radius: 18px;
+                }
+            }
+        }
+    }
+}
