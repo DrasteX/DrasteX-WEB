@@ -46,64 +46,58 @@
 
         <div class="page_main_container">
             <h1>
-                WISHLIST
+                CART
             </h1>
-            <div class="wishlist_container_with_recomms">
-                <div class="wishlist_main_container">
-                    <div class="wishlist_item">
-                        <img class="item_image_wishlist" src="../../Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png">
-                        <div class="wishlist_item_main_cont">
-                            <span id="title_wishlist_item">Sukuna Themed Unisex Tshirt</span>
-                            <div class="wishlist_item_colour_size_share_delete_container">
-                                <div class="sizeandcolor_wishlist"><span>BLACK</span> <span>XXL</span></div>
-                                <div class="shareanddelete_wishlist"><img src="../../Assets/Components/share_btn.png"> <img src="../../Assets/Components/delete_btn.png">
-                                    
+            <div class="cart_container_with_summary">
+                <div class="cart_main_container">
+                    <div class="cart_item">
+                        <img class="item_image_cart" src="../../Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png">
+                        <div class="cart_item_main_cont">
+                            <span id="title_cart_item">Sukuna Themed Unisex Tshirt</span>
+                            <div class="cart_item_colour_size_share_delete_container">
+                                <div class="sizeandcolor_cart"><span>BLACK</span> <span>XXL</span></div>
+                                <div class="shareanddelete_cart">
+                                    <div class="add_remove_items"><span>-</span> <input value="01" type="number"> <span>+</span></div>
+                                    <img src="../../Assets/Components/delete_btn.png">
                                 </div> 
                             </div>
-                            <span class="price_text_wishlist">INR 699</span>
+                            <span class="price_text_cart">INR 699</span>
                         </div>
                     </div>
                    
                     
 
                 </div>
-                <div class="recommended_products_container">
-                    <span class="recommended_container_heading">Explore Other Products</span>
-                    <div class="recommended_item">
-                        <img src="../../Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png">
-                        <div class="spans_recomm_item">
-                            <span class="prod_name_recomm">PRODUCT NAME</span>
-                            <span class="prod_price_recomm">INR 699</span>
+                <div class="summary_main_container">
+                    <span id="summary_title">Order Summary</span>
+                    <div class="order_items_in_cart">
+                        <div class="order_item">
+                            <span class="order_item_quantity">01</span>
+                            <span class="order_item_name">Sukuna Themed Unisex Tshirt</span>
+                            <span class="order_item_price">INR 699</span>
                         </div>
-                        
-                    </div>
-                    <div class="recommended_item">
-                        <img src="../../Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png">
-                        <div class="spans_recomm_item">
-                            <span class="prod_name_recomm">PRODUCT NAME</span>
-                            <span class="prod_price_recomm">INR 699</span>
+                        <div class="order_item">
+                            <span class="order_item_quantity">01</span>
+                            <span class="order_item_name">Sukuna Themed Unisex Tshirt</span>
+                            <span class="order_item_price">INR 699</span>
                         </div>
-                        
-                    </div>
-                    <div class="recommended_item">
-                        <img src="../../Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png">
-                        <div class="spans_recomm_item">
-                            <span class="prod_name_recomm">PRODUCT NAME</span>
-                            <span class="prod_price_recomm">INR 699</span>
+                        <div class="order_item">
+                            <span class="order_item_quantity">01</span>
+                            <span class="order_item_name">Sukuna Themed Unisex Tshirt</span>
+                            <span class="order_item_price">INR 6999</span>
                         </div>
-                        
                     </div>
-                    <div class="recommended_item">
-                        <img src="../../Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png">
-                        <div class="spans_recomm_item">
-                            <span class="prod_name_recomm">PRODUCT NAME</span>
-                            <span class="prod_price_recomm">INR 699</span>
-                        </div>
-                        
-                    </div>
-                    
-                    
 
+                    <hr>
+
+                    <div class="total_order_cost">
+                        <span class="total_text">TOTAL</span>
+                        <span class="total_num">INR 2097</span>
+                    </div>
+                    
+                    <button class="place_order_btn">
+                        PLACE ORDER
+                    </button>
                 </div>
             </div>
         </div>
