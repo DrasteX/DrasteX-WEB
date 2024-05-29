@@ -241,7 +241,8 @@ div.page_main_container {
         font-size: 15px;
     }
 }
-@media screen and (max-width: 1000px) {
+
+@media screen and (max-width: 700px) {
     div.navi_bar_usermenu_main {
         & > a {
             padding: 10px 15px;
@@ -253,6 +254,8 @@ div.page_main_container {
             }
         }
     }
+}
+@media screen and (max-width: 1000px) {
     .wishlist_item_colour_size_share_delete_container {
         margin-top: 7px;
         margin-bottom: 7px;

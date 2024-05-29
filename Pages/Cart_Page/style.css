@@ -6,7 +6,6 @@ html, body {
     margin: 0;
     padding: 0;
 }
-img {pointer-events: none;}
 main {
     max-width: 1200px;
     justify-content: center;
@@ -268,7 +267,7 @@ div.page_main_container {
     border-radius: 10px;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 700px) {
     div.navi_bar_usermenu_main {
         & > a {
             padding: 10px 15px;
@@ -280,6 +279,8 @@ div.page_main_container {
             }
         }
     }
+}
+@media screen and (max-width: 1000px) {
     .cart_item_colour_size_share_delete_container {
         margin-top: 7px;
         margin-bottom: 7px;
@@ -320,6 +321,7 @@ div.page_main_container {
     .cart_container_with_summary {
         flex-direction: column;
     }
+    
     .item_image_cart {
         min-width: 120px;
         height: 120px
@@ -330,5 +332,12 @@ div.page_main_container {
     }
     .summary_main_container {
         border-radius: 0px;
+        align-self: center;
+    }
+    .summary_outer_cont {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        background-color: #161616;
     }
 }

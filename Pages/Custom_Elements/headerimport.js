@@ -90,6 +90,7 @@ header {
     flex-direction: row;
     align-items: center;
     padding: 7px 20px;
+    z-index:1000
     
 }
 
@@ -100,10 +101,12 @@ header {
     flex-wrap: nowrap;
     align-items: center;
     gap: 10px;
+    cursor: pointer;
 }
 
 #logo {
-    height: 55px
+    height: 55px;
+    
 }
 
 #menu_btn {

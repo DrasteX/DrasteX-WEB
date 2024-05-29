@@ -42,29 +42,86 @@
 
         <div class="page_main_container">
             <h1>
-                ORDERS
+                SETTINGS
             </h1>
-            <div class="orders_container_with_recomms">
-                <div class="orders_main_container">
-                    <div class="orders_item">
-                        <img class="item_image_orders" src="../../Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png">
-                        <div class="orders_item_main_cont">
-                            <span id="title_orders_item">Sukuna Themed Unisex Tshirt</span>
-                            <div class="orders_item_colour_size_share_delete_container">
-                                <div class="sizeandcolor_orders"><span class="product_color">BLACK</span> <span class="product_size">XXL</span> <span class="order_status">IN TRANSIT</span> </div>
-                                <div class="shareanddelete_orders"><img src="../../Assets/Components/delete_btn.png">
-                                    <span>01</span>
-                                    
-                                </div> 
-                            </div>
-                        </div>
+            
+            <div class="user_info_main_cont">
+                <h3>USER INFO</h3>
+                <div class="user_info">
+                    <div id="display_name_container">
+                        <label for="display_name">
+                            Display Name
+                        </label>
+                        <input type="text" id="display_name">
                     </div>
-                   
                     
-
+                    <div id="email_address_container">
+                        <label for="email_address">
+                            Email Address
+                        </label>
+                        <input type="email" id="email_address">
+                    </div>
+    
+                    <div id="street_address_container">
+                        <label for="street_address">
+                            Street Address
+                        </label>
+                        <input type="text" id="street_address">
+                    </div>
+    
+                    <div id="city_name_container">
+                        <label for="city_name">
+                            City
+                        </label>
+                        <input type="text" id="city_name">
+                    </div>
+    
+                    <div id="state_name_container">
+                        <label for="state_name">
+                            State
+                        </label>
+                        <input type="text" id="state_name">
+                    </div>
+    
+                    <div id="country_name_container">
+                        <label for="country_name">
+                            Country
+                        </label>
+                        <input type="text" id="country_name">
+                    </div>
+    
+                    <div id="zip_code_container">
+                        <label for="zip_code">
+                            Zip / Postal Code
+                        </label>
+                        <input type="text" id="zip_code">
+                    </div>
+    
+                    <button class="save_changes">
+                        Save Changes
+                    </button>
                 </div>
-                
             </div>
+
+            <div class="ui_settings_main_cont">
+                <h3>UI SETTINGS</h3>
+                <div class="ui_settings">
+                    <div class="currency">
+                        <span>Currency</span>
+                        <select class="select_currency">
+                            <option selected value="0">INR</option>
+                            <option value="1">USD</option>
+                            <option value="2">CAD</option>
+                            <option value="3">PESOS</option>
+                        </select>
+                    </div>
+                    <button class="save_changes">
+                        Save Changes
+                    </button>
+                    
+                </div>
+            </div>
+            
         </div>
     </main>
 
@@ -81,7 +138,7 @@
             display: flex;
             justify-content: space-between;
             max-width: 1200px;
-            overflow: scroll;
+        
             padding: 20px;
             position: relative;
             left: 50%;

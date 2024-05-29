@@ -21,23 +21,19 @@
 
     <main>
         <div class="navi_bar_usermenu_main">
-            <a onclick="location.href='../Wishlist_Page/wishlist.html'">
+            <a href='../Wishlist_Page/wishlist.html'>
                 <img src="../../Assets/Components/wishlist.png">
                 <span>WISHLIST</span>
             </a>
-            <a onclick="location.href='../Cart_Page/cart.html'">
+            <a href='../Cart_Page/cart.html'>
                 <img src="../../Assets/Components/cart_menu_icon.png">
                 <span>CART</span>
             </a>
-            <a onclick="location.href='../Orders_Page/orders.html'">
+            <a href='../Orders_Page/orders.html'>
                 <img src="../../Assets/Components/checkmark.png">
                 <span>ORDERS</span>
             </a>
-            <a onclick="location.href='../Wishlist_Page/wishlist.html'">
-                <img src="../../Assets/Components/truck_track.png">
-                <span>TRACK ORDERS</span>
-            </a>
-            <a>
+            <a href="../User_Settings/settings.html">
                 <img src="../../Assets/Components/settings.png">
                 <span>SETTINGS</span>
             </a>
@@ -68,37 +64,42 @@
                     
 
                 </div>
-                <div class="summary_main_container">
-                    <span id="summary_title">Order Summary</span>
-                    <div class="order_items_in_cart">
-                        <div class="order_item">
-                            <span class="order_item_quantity">01</span>
-                            <span class="order_item_name">Sukuna Themed Unisex Tshirt</span>
-                            <span class="order_item_price">INR 699</span>
+                
+                <div class="summary_outer_cont">
+                    <div class="summary_main_container">
+                        <span id="summary_title">Order Summary</span>
+                        <div class="order_items_in_cart">
+                            <div class="order_item">
+                                <span class="order_item_quantity">01</span>
+                                <span class="order_item_name">Sukuna Themed Unisex Tshirt</span>
+                                <span class="order_item_price">INR 699</span>
+                            </div>
+                            <div class="order_item">
+                                <span class="order_item_quantity">01</span>
+                                <span class="order_item_name">Sukuna Themed Unisex Tshirt</span>
+                                <span class="order_item_price">INR 699</span>
+                            </div>
+                            <div class="order_item">
+                                <span class="order_item_quantity">01</span>
+                                <span class="order_item_name">Sukuna Themed Unisex Tshirt</span>
+                                <span class="order_item_price">INR 6999</span>
+                            </div>
                         </div>
-                        <div class="order_item">
-                            <span class="order_item_quantity">01</span>
-                            <span class="order_item_name">Sukuna Themed Unisex Tshirt</span>
-                            <span class="order_item_price">INR 699</span>
+    
+                        <hr>
+    
+                        <div class="total_order_cost">
+                            <span class="total_text">TOTAL</span>
+                            <span class="total_num">INR 2097</span>
                         </div>
-                        <div class="order_item">
-                            <span class="order_item_quantity">01</span>
-                            <span class="order_item_name">Sukuna Themed Unisex Tshirt</span>
-                            <span class="order_item_price">INR 6999</span>
-                        </div>
+                        
+                        <button class="place_order_btn">
+                            PLACE ORDER
+                        </button>
                     </div>
-
-                    <hr>
-
-                    <div class="total_order_cost">
-                        <span class="total_text">TOTAL</span>
-                        <span class="total_num">INR 2097</span>
-                    </div>
-                    
-                    <button class="place_order_btn">
-                        PLACE ORDER
-                    </button>
                 </div>
+
+                
             </div>
         </div>
     </main>
