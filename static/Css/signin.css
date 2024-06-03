@@ -42,7 +42,7 @@ h1 {
     
 }
 
-#Email, #Password, #Confirm {
+#email, #password, #Confirm {
     font-weight: 500;
     border: none;
     
@@ -51,7 +51,41 @@ h1 {
     outline: none;
 }
 
-#Email {
+.error_notification_container {
+    display: none;
+    flex-direction: row;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #181818;
+    z-index: 10000;
+    gap: 15px;
+    padding: 7px 15px;
+    border-radius: 5px;
+    top: 10px;
+    font-size: 15px;
+    font-weight: 600;
+   white-space: nowrap;
+    color: white; /* Ensure text is visible against the dark background */
+    opacity: 0;
+    transition: opacity 0.5s ease, top 0.5s ease;
+    & > img {
+        height: 20px;
+    }
+    
+}
+.error_notification_container.show {
+    display: flex;
+    opacity: 1;
+    top: 20px; /* Adjust this value based on where you want it to slide to */
+}
+
+.error_notification_container.hide {
+    opacity: 0;
+    top: 10px;
+}
+
+#email {
     border-radius: 7px;
     background-color: #e9e9e9;
     
@@ -143,7 +177,7 @@ h1 {
     }
 }
 
-#Submit {
+#submit {
     background-color: #D60000;
     border: none;
     width: 100%;
@@ -157,10 +191,7 @@ h1 {
 }
 
 
-#main_title_switch_item {
-    display:inline-block;
-    /* transform: translateY(-20px) */
-}
+
 @media screen and (max-width: 600px) {
     body {
         background-color: #1f1f1f;
@@ -169,7 +200,8 @@ h1 {
     main {
         filter: none;
         transform: none;
-        position: static
+        position: static;
+        width: 100%;
     }
 
     .twin_text {

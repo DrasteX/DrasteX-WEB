@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block title %}Wishlist{% endblock %}
+
+{% block stylepath %}
+<link rel="stylesheet" href="{{ url_for('static', filename='Css/wishlist.css') }}">
+{% endblock %}
+{% block scriptpath %}
+<script src="{{ url_for('static', filename='Js/wishlist.js')}}"></script>
+{% endblock %}
+<main>
+    {% block maincontent %}
+    <div class="navi_bar_usermenu_main">
+        <a href="{{ url_for('wishlist') }}">
+            <img src="{{ url_for('static', filename='Assets/Components/wishlist.png') }}">
+            <span>WISHLIST</span>
+        </a>
+        <a href='{{ url_for("cart") }}'>
+            <img src="{{ url_for('static', filename='Assets/Components/cart_menu_icon.png') }}">
+            <span>CART</span>
+        </a>
+        <a href='{{ url_for("orders") }}'>
+            <img src="{{ url_for('static', filename='Assets/Components/checkmark.png') }}">
+            <span>ORDERS</span>
+        </a>
+        <a href="{{ url_for('settings') }}">
+            <img src="{{ url_for('static', filename='Assets/Components/settings.png') }}">
+            <span>SETTINGS</span>
+        </a>
+
+    </div>
+
+        <div class="page_main_container">
+            <h1>
+                WISHLIST
+            </h1>
+            <div class="wishlist_container_with_recomms">
+                <div class="wishlist_main_container">
+                    <div class="wishlist_item">
+                        <img class="item_image_wishlist" src="{{ url_for('static', filename='Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png') }}">
+                        <div class="wishlist_item_main_cont">
+                            <span id="title_wishlist_item">Sukuna Themed Unisex Tshirt</span>
+                            <div class="wishlist_item_colour_size_share_delete_container">
+                                <div class="sizeandcolor_wishlist"><span>BLACK</span> <span>XXL</span></div>
+                                <div class="shareanddelete_wishlist"><img src="{{ url_for('static', filename='Assets/Components/share_btn.png') }}"> <img src="{{ url_for('static', filename='Assets/Components/delete_btn.png') }}">
+                                    
+                                </div> 
+                            </div>
+                            <span class="price_text_wishlist">INR 699</span>
+                        </div>
+                    </div>
+                   
+                    
+
+                </div>
+                <div class="recommended_products_container">
+                    <span class="recommended_container_heading">Explore Other Products</span>
+                    <div class="recommended_item">
+                        <img src="{{ url_for('static', filename='Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png') }}">
+                        <div class="spans_recomm_item">
+                            <span class="prod_name_recomm">PRODUCT NAME</span>
+                            <span class="prod_price_recomm">INR 699</span>
+                        </div>
+                        
+                    </div>
+                    <div class="recommended_item">
+                        <img src="{{ url_for('static', filename='Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png') }}">
+                        <div class="spans_recomm_item">
+                            <span class="prod_name_recomm">PRODUCT NAME</span>
+                            <span class="prod_price_recomm">INR 699</span>
+                        </div>
+                        
+                    </div>
+                    <div class="recommended_item">
+                        <img src="{{ url_for('static', filename='Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png') }}">
+                        <div class="spans_recomm_item">
+                            <span class="prod_name_recomm">PRODUCT NAME</span>
+                            <span class="prod_price_recomm">INR 699</span>
+                        </div>
+                        
+                    </div>
+                    <div class="recommended_item">
+                        <img src="{{ url_for('static', filename='Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png') }}">
+                        <div class="spans_recomm_item">
+                            <span class="prod_name_recomm">PRODUCT NAME</span>
+                            <span class="prod_price_recomm">INR 699</span>
+                        </div>
+                        
+                    </div>
+                    
+                    
+
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+    </main>
+

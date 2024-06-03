@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}Settings{% endblock %}
+
+{% block stylepath %}
+<link rel="stylesheet" href="{{ url_for('static', filename='Css/settings.css') }}">
+{% endblock %}
+{% block scriptpath %}
+{% endblock %}
+<main>
+    {% block maincontent %}
+    <div class="navi_bar_usermenu_main">
+        <a href="{{ url_for('wishlist') }}">
+            <img src="{{ url_for('static', filename='Assets/Components/wishlist.png') }}">
+            <span>WISHLIST</span>
+        </a>
+        <a href='{{ url_for("cart") }}'>
+            <img src="{{ url_for('static', filename='Assets/Components/cart_menu_icon.png') }}">
+            <span>CART</span>
+        </a>
+        <a href='{{ url_for("orders") }}'>
+            <img src="{{ url_for('static', filename='Assets/Components/checkmark.png') }}">
+            <span>ORDERS</span>
+        </a>
+        <a href="{{ url_for('settings') }}">
+            <img src="{{ url_for('static', filename='Assets/Components/settings.png') }}">
+            <span>SETTINGS</span>
+        </a>
+    </div>
+
+    <div class="page_main_container">
+        <h1>SETTINGS</h1>
+        
+        <div class="user_info_main_cont">
+            <h3>USER INFO</h3>
+            <form class="user_info" method="POST" action="{{ url_for('settings') }}">
+                <input type="hidden" name="form_type" value="user_info">
+
+                <div id="email_address_container">
+                    <label for="email_address">Email Address</label>
+                    <input value="{{ session['email'] }}" name="email" type="email" id="email_address" readonly>
+                </div>
+
+                <div id="street_address_container">
+                    <label for="street_address">Street Address</label>
+                    <input name="street_address" type="text" id="street_address" value="{{ user.street_address }}">
+                </div>
+
+                <div id="city_name_container">
+                    <label for="city_name">City</label>
+                    <input name="city_name" type="text" id="city_name" value="{{ user.city }}">
+                </div>
+
+                <div id="state_name_container">
+                    <label for="state_name">State</label>
+                    <input name="state_name" type="text" id="state_name" value="{{ user.state }}">
+                </div>
+
+                <div id="country_name_container">
+                    <label for="country_name">Country</label>
+                    <input name="country_name" type="text" id="country_name" value="{{ user.country }}">
+                </div>
+
+                <div id="zip_code_container">
+                    <label for="zip_code">Zip / Postal Code</label>
+                    <input name="zip_code" type="text" id="zip_code" value="{{ user.zip_code }}">
+                </div>
+
+                <input type="submit" value="Save Changes" class="save_changes" id="infosettings">
+            </form>
+        </div>
+
+        <div class="ui_settings_main_cont">
+            <h3>UI SETTINGS</h3>
+            <form class="ui_settings" method="POST" action="{{ url_for('settings') }}">
+                <input type="hidden" name="form_type" value="ui_settings">
+                <div class="currency">
+                    <span>Currency</span>
+                    <select name="currency" class="select_currency">
+                        <option value="INR" {% if user.currency == 'INR' %}selected{% endif %}>INR</option>
+                        <option value="USD" {% if user.currency == 'USD' %}selected{% endif %}>USD</option>
+                        <option value="CAD" {% if user.currency == 'CAD' %}selected{% endif %}>CAD</option>
+                        <option value="PESOS" {% if user.currency == 'PESOS' %}selected{% endif %}>PESOS</option>
+                    </select>
+                </div>
+                <input type="submit" value="Save Changes" class="save_changes" id="uisettings">
+            </form>
+        </div>
+    </div>
+    {% endblock %}
+</main>

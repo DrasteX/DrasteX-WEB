@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block title %}DrasteX{% endblock %}
+
+{% block stylepath %}
+<link rel="stylesheet" href="{{ url_for('static', filename='Css/index.css') }}">
+{% endblock %}
+{% block scriptpath %}
+<script src="{{ url_for('static', filename='Js/index.js')}}"></script>
+{% endblock %}
+
+
+<main>{% block maincontent %}
+        <div class="top_banner">
+            <div class="text_area_top_banner">
+                <h1>SUKUNA THEMED</h1>
+                <h3>Black Unisex Tshirt</h2>
+                <button>
+                    <img src="{{ url_for('static', filename='Assets/Components/Cart_icon.png') }}">
+                    <span>Add To Cart</span>
+                    <img src="{{ url_for('static', filename='Assets/Components/Arrow.png') }}">
+                </button>
+            </div>
+        </div>
+
+        <article class="Scroller_Main">
+            <h1>NEW RELEASES</h1>
+            <div class="Scroller_container">
+                <div id="NEW_RELEASES_LEFT" class="left_control_scroller">
+                    <img src="{{ url_for('static', filename='Assets/Components/Arrow.png') }}" alt="<">
+                </div>
+                <div id="NEW_RELEASES_SCROLLER" class="scroller_content">
+                    
+                </div>
+                <div id="NEW_RELEASES_RIGHT" class="right_control_scroller">
+                    <img src="{{ url_for('static', filename='Assets/Components/Arrow.png') }}" alt=">">
+                </div>
+            </div>
+        </article>
+        <article class="Scroller_Main">
+            <h1>FEATURED PRODUCTS</h1>
+            <div class="Scroller_container">
+                <div id="FEATURED_PRODUCTS_LEFT" class="left_control_scroller">
+                    <img src="{{ url_for('static', filename='Assets/Components/Arrow.png') }}" alt="<">
+                </div>
+                <div id="FEATURED_PRODUCTS_SCROLLER" class="scroller_content">
+                    
+                </div>
+                <div id="FEATURED_PRODUCTS_RIGHT" class="right_control_scroller">
+                    <img src="{{ url_for('static', filename='Assets/Components/Arrow.png') }}" alt=">">
+                </div>
+            </div>
+        </article>
+        <article class="Scroller_Main">
+            <h1>SHOP BY ANIME</h1>
+            <div class="Scroller_container">
+                <div id="SHOP_BY_ANIME_LEFT" class="left_control_scroller">
+                    <img src="{{ url_for('static', filename='Assets/Components/Arrow.png') }}" alt="<">
+                </div>
+                <div id="SHOP_BY_ANIME_SCROLLER" class="scroller_content">
+                    <div class="SCROLLER_BANNER">
+                        <img class="BGIMG_SCROLLER_BANNER" src="{{ url_for('static', filename='Assets/BANNERS/DEMONSLAYERBANNER.png') }}">
+                        <img class="LOGOIMG_SCROLLER_BANNER" src="{{ url_for('static', filename='Assets/BANNERS/DEMONSLAYERLOGO.png') }}">
+                    </div>
+                    <div class="SCROLLER_BANNER">
+                        <img class="BGIMG_SCROLLER_BANNER" src="{{ url_for('static', filename='Assets/BANNERS/ONEPIECEBANNER.png') }}">
+                        <img class="LOGOIMG_SCROLLER_BANNER" src="{{ url_for('static', filename='Assets/BANNERS/ONEPIECELOGO.png') }}">
+                    </div>
+                    <div class="SCROLLER_BANNER">
+                        <img class="BGIMG_SCROLLER_BANNER" src="{{ url_for('static', filename='Assets/BANNERS/AOTBANNER.png') }}">
+                        <img class="LOGOIMG_SCROLLER_BANNER" src="{{ url_for('static', filename='Assets/BANNERS/AOTLOGO.png') }}">
+                    </div>
+                    <div class="SCROLLER_BANNER">
+                        <img class="BGIMG_SCROLLER_BANNER" src="{{ url_for('static', filename='Assets/BANNERS/JJKBANNER.png') }}">
+                        <img class="LOGOIMG_SCROLLER_BANNER" src="{{ url_for('static', filename='Assets/BANNERS/JJKLOGO.png') }}">
+                    </div>
+                    <div class="SCROLLER_BANNER">
+                        <img class="BGIMG_SCROLLER_BANNER" src="{{ url_for('static', filename='Assets/BANNERS/CHAINSAWMANBANNER.png') }}">
+                        <img class="LOGOIMG_SCROLLER_BANNER" src="{{ url_for('static', filename='Assets/BANNERS/CHAINSAWLOGO.png') }}">
+                    </div>
+                    <div class="SCROLLER_BANNER">
+                        <img class="BGIMG_SCROLLER_BANNER" src="{{ url_for('static', filename='Assets/BANNERS/NARUTOBANNER.png') }}">
+                        <img class="LOGOIMG_SCROLLER_BANNER" src="{{ url_for('static', filename='Assets/BANNERS/NARUTOLOGO.png') }}">
+                    </div>
+                    <div class="SCROLLER_BANNER">
+                        <img class="BGIMG_SCROLLER_BANNER" src="{{ url_for('static', filename='Assets/BANNERS/ICHIGOBANNER.png') }}">
+                        <img class="LOGOIMG_SCROLLER_BANNER" src="{{ url_for('static', filename='Assets/BANNERS/BLEACHLOGO.png') }}">
+                    </div>
+                    <div class="SCROLLER_BANNER">
+                        <img class="BGIMG_SCROLLER_BANNER" src="{{ url_for('static', filename='Assets/BANNERS/SOLOLEVELINGBANNER.png') }}">
+                        <img class="LOGOIMG_SCROLLER_BANNER" src="{{ url_for('static', filename='Assets/BANNERS/SOLOLEVELINGLOGO.png') }}">
+                    </div>
+                    <div class="SCROLLER_BANNER">
+                        <img class="BGIMG_SCROLLER_BANNER" src="{{ url_for('static', filename='Assets/BANNERS/DBZBANNER.png') }}">
+                        <img class="LOGOIMG_SCROLLER_BANNER" src="{{ url_for('static', filename='Assets/BANNERS/HXHLOGO.png') }}">
+                    </div>
+                    <div class="SCROLLER_BANNER">
+                        <img class="BGIMG_SCROLLER_BANNER" src="{{ url_for('static', filename='Assets/BANNERS/HXHBANNER.png') }}">
+                        <img class="LOGOIMG_SCROLLER_BANNER" src="{{ url_for('static', filename='Assets/BANNERS/DBZLOGO.png') }}">
+                    </div>
+                </div>
+                <div id="SHOP_BY_ANIME_RIGHT" class="right_control_scroller">
+                    <img src="{{ url_for('static', filename='Assets/Components/Arrow.png') }}" alt=">">
+                </div>
+            </div>
+        </article>
+        <article class="Scroller_Main">
+            <h1>SHOP BY TYPE</h1>
+            <div class="Scroller_container">
+                <div id="SHOP_BY_TYPE_LEFT" class="left_control_scroller">
+                    <img src="{{ url_for('static', filename='Assets/Components/Arrow.png') }}" alt="<">
+                </div>
+                <div id="SHOP_BY_TYPE_SCROLLER" class="scroller_content">
+                    
+                </div>
+                <div id="SHOP_BY_TYPE_RIGHT" class="right_control_scroller">
+                    <img src="{{ url_for('static', filename='Assets/Components/Arrow.png') }}" alt=">">
+                </div>
+            </div>
+        </article>
+        {% endblock %}
+</main>

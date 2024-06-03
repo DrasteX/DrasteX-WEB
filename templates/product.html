@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Cart{% endblock %}
+
+{% block stylepath %}
+<link rel="stylesheet" href="{{ url_for('static', filename='Css/product.css') }}">
+{% endblock %}
+{% block scriptpath %}
+<script src="{{ url_for('static', filename='Js/product.js')}}"></script>
+{% endblock %}
+<main>
+    {% block maincontent %}
+        <div class="Left_Area_PDUCT">
+            <span class="product_name">PRODUCT NAME</span>
+            <span class="colour_detail">Colour : Black</span>
+            <div class="Product_Info_PDUCT">
+                <img src="{{ url_for('static', filename='Assets/Components/Arrow.png') }}">
+                <span>Product Information</span>
+            </div>
+            <div class="Size_Btns_PDUCT">
+                <span>SELECT SIZE</span>
+                <div class="btns_sizes_inner_PDUCT">
+                    <button id="small_size">S</button>
+                    <button id="medium_size">M</button>
+                    <button id="large_size">L</button>
+                    <button id="extra_large_size">XL</button>
+                    <button id="extra_extra_large_size">XXL</button>
+                    <button id="extra_extra_large_size">XXXL</button>
+                </div>
+            </div>
+            <span class="price_text_PDUCT">INR 699.00</span>
+            <div class="buyandcart_btns_PDUCT">
+                <button class="add_to_cart_button">
+                    <img src="{{ url_for('static', filename='Assets/Components/Cart_icon.png') }}">
+                    <span>ADD TO<br> CART</span>
+                </button>
+                <button class="buy_button">
+                    BUY NOW!
+                </button>
+                
+            </div>
+            <div class="sizechart_container">
+                <div id="sizechart_heading"><img src="{{ url_for('static', filename='Assets/Components/sizechart.png') }}"> <span>Size Chart</span></div>
+                <div class="sizechart_table">
+                <span id="heading_sizechart">Size</span> <span id="bold_sizechart">S</span> <span id="bold_sizechart">M</span> <span id="bold_sizechart">L</span> <span id="bold_sizechart">XL</span> <span id="bold_sizechart">XXL</span> <span id="bold_sizechart">XXXL</span>
+                <span id="heading_sizechart">Chest (inches)</span> <span>43</span> <span>45</span> <span>47</span> <span>49</span> <span>51</span> <span>53</span>
+                <span id="heading_sizechart">Length (inches)</span> <span>28.5</span> <span>29</span> <span>29.5</span> <span>30</span> <span>30.5</span> <span>31</span>
+                </div>
+            </div>
+            
+        </div>
+        <div class="Mid_Area_PDUCT">
+            <img class="main" src="{{ url_for('static', filename='Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png')}}">
+            <div class="remain">
+                <img src="{{ url_for('static', filename='Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png')}}">
+                <img src="{{ url_for('static', filename='Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png')}}">
+                <img src="{{ url_for('static', filename='Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png')}}">
+                <img src="{{ url_for('static', filename='Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png')}}">
+                <img src="{{ url_for('static', filename='Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png')}}">
+            </div>
+        </div>
+        <div class="Right_Area_PDUCT">
+            <div class="Reviews_Container">
+                <span>REVIEWS</span>
+            </div>
+            <div class="Suggestion_Container">
+                <span>SUGGESTIONS</span>
+            </div>
+        </div>
+        {% endblock %}
+    </main>

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Cart{% endblock %}
+
+{% block stylepath %}
+<link rel="stylesheet" href="{{ url_for('static', filename='Css/orders.css') }}">
+{% endblock %}
+{% block scriptpath %}
+<script src="{{ url_for('static', filename='Js/orders.js')}}"></script>
+{% endblock %}
+<main>
+    {% block maincontent %}
+    <div class="navi_bar_usermenu_main">
+        <a href="{{ url_for('wishlist') }}">
+            <img src="{{ url_for('static', filename='Assets/Components/wishlist.png') }}">
+            <span>WISHLIST</span>
+        </a>
+        <a href='{{ url_for("cart") }}'>
+            <img src="{{ url_for('static', filename='Assets/Components/cart_menu_icon.png') }}">
+            <span>CART</span>
+        </a>
+        <a href='{{ url_for("orders") }}'>
+            <img src="{{ url_for('static', filename='Assets/Components/checkmark.png') }}">
+            <span>ORDERS</span>
+        </a>
+        <a href="{{ url_for('settings') }}">
+            <img src="{{ url_for('static', filename='Assets/Components/settings.png') }}">
+            <span>SETTINGS</span>
+        </a>
+
+    </div>
+
+        <div class="page_main_container">
+            <h1>
+                ORDERS
+            </h1>
+            <div class="orders_container_with_recomms">
+                <div class="orders_main_container">
+                    <div class="orders_item">
+                        <img class="item_image_orders" src="{{ url_for('static', filename='Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png') }}">
+                        <div class="orders_item_main_cont">
+                            <span id="title_orders_item">Sukuna Themed Unisex Tshirt</span>
+                            <div class="orders_item_colour_size_share_delete_container">
+                                <div class="sizeandcolor_orders"><span class="product_color">BLACK</span> <span class="product_size">XXL</span> <span class="order_status">IN TRANSIT</span> </div>
+                                <div class="shareanddelete_orders"><img src="{{ url_for('static', filename='Assets/Components/delete_btn.png') }}">
+                                    <span>01</span>
+                                    
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                   
+                    
+
+                </div>
+                
+            </div>
+        </div>
+        {% endblock %}
+    </main>

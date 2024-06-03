@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block title %}Cart{% endblock %}
+
+{% block stylepath %}
+<link rel="stylesheet" href="{{ url_for('static', filename='Css/cart.css') }}">
+{% endblock %}
+{% block scriptpath %}
+<script src="{{ url_for('static', filename='Js/cart.js')}}"></script>
+{% endblock %}
+<main>
+    {% block maincontent %}
+    <div class="navi_bar_usermenu_main">
+        <a href="{{ url_for('wishlist') }}">
+            <img src="{{ url_for('static', filename='Assets/Components/wishlist.png') }}">
+            <span>WISHLIST</span>
+        </a>
+        <a href='{{ url_for("cart") }}'>
+            <img src="{{ url_for('static', filename='Assets/Components/cart_menu_icon.png') }}">
+            <span>CART</span>
+        </a>
+        <a href='{{ url_for("orders") }}'>
+            <img src="{{ url_for('static', filename='Assets/Components/checkmark.png') }}">
+            <span>ORDERS</span>
+        </a>
+        <a href="{{ url_for('settings') }}">
+            <img src="{{ url_for('static', filename='Assets/Components/settings.png') }}">
+            <span>SETTINGS</span>
+        </a>
+
+    </div>
+
+    <div class="page_main_container">
+        <h1>
+            CART
+        </h1>
+        <div class="cart_container_with_summary">
+            <div class="cart_main_container">
+                <div class="cart_item">
+                    <img class="item_image_cart" src="{{ url_for('static', filename='Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png') }}">
+                    <div class="cart_item_main_cont">
+                        <span id="title_cart_item">Sukuna Themed Unisex Tshirt</span>
+                        <div class="cart_item_colour_size_share_delete_container">
+                            <div class="sizeandcolor_cart"><span>BLACK</span> <span>XXL</span></div>
+                            <div class="shareanddelete_cart">
+                                <div class="add_remove_items"><span id="remove_item">-</span> <input id="number_of_items" value="1" type="number"> <span id="add_item">+</span></div>
+                                <img src="{{ url_for('static', filename='Assets/Components/delete_btn.png') }}">
+                            </div> 
+                        </div>
+                        <span class="price_text_cart">INR 699</span>
+                    </div>
+                </div>
+                <div class="cart_item">
+                    <img class="item_image_cart" src="{{ url_for('static', filename='Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png') }}">
+                    <div class="cart_item_main_cont">
+                        <span id="title_cart_item">Sukuna Themed Unisex Tshirt</span>
+                        <div class="cart_item_colour_size_share_delete_container">
+                            <div class="sizeandcolor_cart"><span>BLACK</span> <span>XXL</span></div>
+                            <div class="shareanddelete_cart">
+                                <div class="add_remove_items"><span id="remove_item">-</span> <input id="number_of_items" value="1" type="number"> <span id="add_item">+</span></div>
+                                <img src="{{ url_for('static', filename='Assets/Components/delete_btn.png') }}">
+                            </div> 
+                        </div>
+                        <span class="price_text_cart">INR 699</span>
+                    </div>
+                </div>
+                
+                
+
+            </div>
+            
+            <div class="summary_outer_cont">
+                <div class="summary_main_container">
+                    <span id="summary_title">Order Summary</span>
+                    <div class="order_items_in_cart">
+                        <div class="order_item">
+                            <span class="order_item_quantity">01</span>
+                            <span class="order_item_name">Sukuna Themed Unisex Tshirt</span>
+                            <span class="order_item_price">INR 699</span>
+                        </div>
+                        <div class="order_item">
+                            <span class="order_item_quantity">01</span>
+                            <span class="order_item_name">Sukuna Themed Unisex Tshirt</span>
+                            <span class="order_item_price">INR 699</span>
+                        </div>
+                        <div class="order_item">
+                            <span class="order_item_quantity">01</span>
+                            <span class="order_item_name">Sukuna Themed Unisex Tshirt</span>
+                            <span class="order_item_price">INR 6999</span>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="total_order_cost">
+                        <span class="total_text">TOTAL</span>
+                        <span class="total_num">INR 2097</span>
+                    </div>
+                    
+                    <button class="place_order_btn">
+                        PLACE ORDER
+                    </button>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+    {% endblock %}
+</main>

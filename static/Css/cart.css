@@ -186,7 +186,10 @@ div.page_main_container {
         font-size: medium;
     }
 }
-
+#remove_item, #add_item {
+    cursor: pointer;
+    user-select: none;
+}
 
 
 

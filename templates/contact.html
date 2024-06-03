@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Contact{% endblock %}
+
+{% block stylepath %}
+<link rel="stylesheet" href="{{ url_for('static', filename='Css/contact.css') }}">
+{% endblock %}
+{% block scriptpath %}
+<script src="{{ url_for('static', filename='Js/contact.js')}}"></script>
+{% endblock %}
+<main>
+    {% block maincontent %}
+        <h1>FEELING LONELY? TALK TO US! </h1>
+        <p id="info">
+            Reach out to us if you need any assistance with our products, want to share an idea or just want to say Hi! 
+        </p>
+        <div class="contact_options">
+            <div class="email_us">
+                <img src="{{ url_for('static', filename='Assets/Components/gmail.png') }}">
+                <a href="mailto:drastexyt@gmail.com">Email Us : <br> <span>drastexyt@gmail.com </span></a>
+            </div>
+            <div class="call_us">
+                <img src="{{ url_for('static', filename='Assets/Components/phone-call.png') }}">
+                <a href="tel:8178541814">Call Us : <br> <span>+91 81785 41814</span></a>
+            </div>
+            <div class="join_dc">
+                <img src="{{ url_for('static', filename='Assets/Components/Discord.png') }}">
+                <a href="https://discord.gg/a4Mp23XbHK">Join Our Discord Server <br> <span>https://discord.gg/a4Mp23XbHK</span></a>
+            </div>
+        </div>
+        
+
+        {% endblock %}
+    </main>
+    

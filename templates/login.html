@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}Sign In{% endblock %}
+
+{% block stylepath %}
+<link rel="stylesheet" href="{{ url_for('static', filename='Css/signin.css') }}">
+{% endblock %}
+{% block scriptpath %}
+<script src="{{ url_for('static', filename='Js/signin.js') }}"></script>
+
+{% endblock %}
+
+<main>
+    {% block maincontent %}
+    <div id="error_notification" class="error_notification_container">
+        <img src="{{ url_for('static', filename='Assets/Components/info_icon.png') }}" alt="Error Icon">
+        <span id="error_message">Error message goes here</span>
+    </div>
+    
+    <h1 class="main_title">SIGN IN</span></h1>
+    <form class="sign_in_up" method="POST" action="{{ url_for('login') }}">
+        <input required autocomplete="on" name="email" placeholder="Email" id="email" type="email">
+        <div class="Password_Holder">
+            <input required autocomplete="on" name="password" placeholder="Password" id="password" type="password">
+            <img alt="Show Password" id="passvisibility" src="{{ url_for('static', filename='Assets/Components/Eye_icon.png') }}">
+        </div>
+        
+        <div class="Signing_Options">
+            <div class="Signing_Options_title">
+                <hr> <span id="middletext">Or Sign Up Using</span> <hr>
+            </div>
+            <div class="Signing_Options_Items">
+                <a href="#">
+                    <img src="{{ url_for('static', filename='Assets/Components/Facebook.png') }}">
+                </a>
+                <a href="#">
+                    <img src="{{ url_for('static', filename='Assets/Components/Discord.png') }}">
+                </a>
+                <a href="#">
+                    <img src="{{ url_for('static', filename='Assets/Components/Google.png') }}">
+                </a>
+            </div>
+        </div>
+
+        <div class="twin_text">
+            <a href="{{ url_for('register') }}" id="left_hyper">Register Here</a>
+            <a href="#" id="right_hyper">Forgot Password?</a>
+        </div>
+        <input id="submit" type="submit" value="Sign In">
+    </form>
+    <script>
+        function showError(message) {
+            const errorNotification = document.getElementById('error_notification');
+            const errorMessage = document.getElementById('error_message');
+    
+            errorMessage.textContent = message;
+            errorNotification.classList.add('show');
+            errorNotification.classList.remove('hide');
+    
+            // Hide the notification after 3 seconds with animation
+            setTimeout(() => {
+                errorNotification.classList.add('hide');
+                setTimeout(() => {
+                    errorNotification.classList.remove('show');
+                }, 500); // Match this duration with the CSS transition duration
+            }, 3000);
+        }
+    
+        // Check if there is a flash message to show
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                showError("{{ message }}");
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </script>
+    {% endblock %}
+</main>

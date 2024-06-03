@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}DrasteX{% endblock %}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="{{ url_for('static', filename='Assets/LOGO/Mark_WithoutBG.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Css/base-header.css') }}">
+
+    {% block stylepath %}{% endblock %}
+    {% block scriptpath %}{% endblock %}
+</head>
+<body>
+    <script src="{{ url_for('static', filename='Js/base-header.js') }}"></script>
+
+    <header id="header_id_for_removing">
+        <div class="left_head">
+            <img id="menu_btn" src="{{ url_for('static', filename='Assets/Components/Menu_Button_White.png') }}">
+            <img onclick="location.href='{{ url_for('index') }}'" id="logo" src="{{ url_for('static', filename='Assets/LOGO/LOGO_forDarkBG.png') }}">
+        </div>
+
+        <div class="nav_head">
+            <button id="close_menu_btn"><pre>🞀    Close Menu</pre></button>
+            <a href="#">Catalog</a>
+            <a id="shopbyanime_btn"> 🢖 Shop By Anime </a>
+            <div class="shopbyanime_inner">
+                <h3>Shop by Anime </h3>
+                <ul>
+                    <li>One Piece</li>
+                    <li>Jujutsu Kaisen</li>
+                    <li>Chainsaw Man</li>
+                    <li>Hunter X Hunter</li>
+                    <li>Attack On Titan</li>
+                    <li>Naruto</li>
+                    <li>Bleach</li>
+                    <li>Dragon Ball Z</li>
+                    <li>Demon Slayer</li>
+                    <li>Solo Leveling</li>
+                </ul>
+            </div>
+            <a id="shopbytype_btn"> 🢖 Shop By Type </a>
+            <div class="shopbytype_inner">
+                <h3>Shop by Type </h3>
+                <ul>
+                    <li>T-Shirts</li>
+                    <li>Hoodies</li>
+                    <li>Caps</li>
+                    <li>Key Chains</li>
+                    <li>Rings</li>
+                    <li>Posters</li>
+                    <li>Stickers</li>
+                    <li>Sweatshirts</li>
+                </ul>
+            </div>
+            <a href="#">Review</a>
+            <a href="{{ url_for('contact') }}">Contact Us</a>
+        </div>
+        
+        <div class="right_head">
+            {% if session.get('email') %}
+            <button id="user_menu_button_right">
+                <img src="{{ url_for('static', filename='Assets/Components/profile_icon.png') }}">
+            </button>
+            <ul class="user_options">
+                <li onclick="location.href='{{url_for('cart')}}'">MY CART</li>
+                <li onclick="location.href='{{url_for('wishlist')}}'">MY WISHLIST</li>
+                <li onclick="location.href='{{url_for('orders')}}'">MY ORDERS</li>
+                <li onclick="location.href='{{url_for('logout')}}'">LOGOUT</li>
+            </ul>
+            {% else %}
+            <button onclick="location.href='{{ url_for('login') }}'" id="signin_btn">Sign In</button>
+            {% endif %}
+        </div>
+    </header>
+
+    <main>
+        {% block maincontent %}{% endblock %}
+    </main>
+
+    <footer id="footer_id_for_removing">
+        <style>
+        footer {
+            background-color: #141414;
+            position:absolute;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+        }
+        .foot_container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            min-width: fit-content;
+            padding: 20px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .foot_container > .logo_footer > img {
+            height: 60px;
+        }
+        .foot_container > .links_footer {
+            display: flex;
+            gap: 40px;
+            margin: 0px 20px 40px 20px;
+            color: white;
+        }
+        .foot_container > .links_footer > .Explore_links_footer,
+        .foot_container > .links_footer > .Quick_links_footer {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .foot_container > .links_footer > .Explore_links_footer > h5,
+        .foot_container > .links_footer > .Quick_links_footer > h5 {
+            font-size: 17px;
+            font-weight: 600;
+            margin: 10px 0px;
+        }
+        .foot_container > .links_footer > .Explore_links_footer > a,
+        .foot_container > .links_footer > .Quick_links_footer > a {
+            color: white;
+            font-size: 17px;
+        }
+        </style>
+        <div class="foot_container">
+            <div class="logo_footer">
+                <img src="{{ url_for('static', filename='Assets/LOGO/LOGO_forDarkBG.png') }}" alt="LOGO">
+            </div>
+            <div class="links_footer">
+                <div class="Explore_links_footer">
+                    <h5>Explore</h5>
+                    <a href="#">Home</a>
+                    <a href="#">Catalog</a>
+                    <a href="#">Shop By Anime</a>
+                    <a href="#">Shop By Type</a>
+                </div>
+                <div class="Quick_links_footer">
+                    <h5>Quick Links</h5>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
