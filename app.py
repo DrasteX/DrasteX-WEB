@@ -85,6 +85,10 @@ def index():
 def contact():
     return render_template('contact.html')
 
+@app.route('/catalog')
+def catalog():
+    return render_template('catalog.html')
+
 @app.route('/signin')
 def signin():
     return render_template('signin.html')
@@ -125,8 +129,6 @@ def settings():
                     WHERE email = ?
                 ''', (street_address, city, state, country, zip_code, session['email']))
                 conn.commit()
-
-            flash('User info updated successfully.', 'success')
         
         elif form_type == 'ui_settings':
             currency = request.form.get('currency')
@@ -139,8 +141,6 @@ def settings():
                     WHERE email = ?
                 ''', (currency, session['email']))
                 conn.commit()
-
-            flash('UI settings updated successfully.', 'success')
 
         return redirect(url_for('settings'))
     

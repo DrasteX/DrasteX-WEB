@@ -30,7 +30,12 @@
                     <img src="{{ url_for('static', filename='Assets/Components/Arrow.png') }}" alt="<">
                 </div>
                 <div id="NEW_RELEASES_SCROLLER" class="scroller_content">
-                    
+                    <img class="SCROLLER_BANNER" src="{{url_for('static', filename='Assets/MOCKUPS/chainsaw_man_mockup_1.jpg')}}">
+                    <img class="SCROLLER_BANNER" src="{{url_for('static', filename='Assets/MOCKUPS/jjk_mockup_1.jpg')}}">
+                    <img class="SCROLLER_BANNER" src="{{url_for('static', filename='Assets/MOCKUPS/jjk_mockup_2.jpg')}}">
+                    <img class="SCROLLER_BANNER" src="{{url_for('static', filename='Assets/MOCKUPS/jjk_mockup_3.jpg')}}">
+                    <img class="SCROLLER_BANNER" src="{{url_for('static', filename='Assets/MOCKUPS/bleach_mockup_1.jpg')}}">
+                    <img class="SCROLLER_BANNER" src="{{url_for('static', filename='Assets/MOCKUPS/one_piece_mockup_1.jpg')}}">
                 </div>
                 <div id="NEW_RELEASES_RIGHT" class="right_control_scroller">
                     <img src="{{ url_for('static', filename='Assets/Components/Arrow.png') }}" alt=">">
@@ -51,13 +56,13 @@
                 </div>
             </div>
         </article>
-        <article class="Scroller_Main">
+        <article class="Scroller_Main" id="shopbyanime_scroller">
             <h1>SHOP BY ANIME</h1>
             <div class="Scroller_container">
                 <div id="SHOP_BY_ANIME_LEFT" class="left_control_scroller">
                     <img src="{{ url_for('static', filename='Assets/Components/Arrow.png') }}" alt="<">
                 </div>
-                <div id="SHOP_BY_ANIME_SCROLLER" class="scroller_content">
+                <div id="SHOP_BY_ANIME_SCROLLER" class="scroller_content" >
                     <div class="SCROLLER_BANNER">
                         <img class="BGIMG_SCROLLER_BANNER" src="{{ url_for('static', filename='Assets/BANNERS/DEMONSLAYERBANNER.png') }}">
                         <img class="LOGOIMG_SCROLLER_BANNER" src="{{ url_for('static', filename='Assets/BANNERS/DEMONSLAYERLOGO.png') }}">

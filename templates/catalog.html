@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Cart{% endblock %}
+
+{% block stylepath %}
+<link rel="stylesheet" href="{{ url_for('static', filename='Css/cart.css') }}">
+{% endblock %}
+{% block scriptpath %}
+<script src="{{ url_for('static', filename='Js/cart.js')}}"></script>
+{% endblock %}
+<main>
+    {% block maincontent %}
+
+    <div class="page_main_container">
+        <h1>
+            CATALOG
+        </h1>
+        <div class="items_container">
+            <img class="catalog_items" src="{{url_for('static', filename='Assets/MOCKUPS/jjk_mockup_1.jpg')}}">
+            <img class="catalog_items" src="{{url_for('static', filename='Assets/MOCKUPS/jjk_mockup_2.jpg')}}">
+            <img class="catalog_items" src="{{url_for('static', filename='Assets/MOCKUPS/jjk_mockup_3.jpg')}}">
+        </div>
+    </div>
+    {% endblock %}
+</main>

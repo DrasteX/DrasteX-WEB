@@ -8,6 +8,15 @@ document.addEventListener("DOMContentLoaded",()=>{
             scroller.scrollLeft -= 200;
         })
     }
+    console.log('h')
+
+    const scrollers = document.querySelectorAll(".scroller_content")
+    for (elements of scrollers) {
+        if(elements.children.length < 1) {
+            elements.parentElement.parentElement.style.display = "none"
+        }
+        
+    }
 
     // NEW RELEASES
     Scroll_Functionality(document.getElementById("NEW_RELEASES_SCROLLER"), document.getElementById("NEW_RELEASES_LEFT"), document.getElementById("NEW_RELEASES_RIGHT"));

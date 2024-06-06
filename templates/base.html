@@ -26,7 +26,7 @@
 
         <div class="nav_head">
             <button id="close_menu_btn"><pre>🞀    Close Menu</pre></button>
-            <a href="#">Catalog</a>
+            <a href="{{url_for('catalog')}}">Catalog</a>
             <a id="shopbyanime_btn"> 🢖 Shop By Anime </a>
             <div class="shopbyanime_inner">
                 <h3>Shop by Anime </h3>
@@ -83,51 +83,7 @@
     </main>
 
     <footer id="footer_id_for_removing">
-        <style>
-        footer {
-            background-color: #141414;
-            position:absolute;
-            left: 0px;
-            right: 0px;
-            bottom: 0px;
-        }
-        .foot_container {
-            display: flex;
-            justify-content: space-between;
-            max-width: 1200px;
-            min-width: fit-content;
-            padding: 20px;
-            position: relative;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .foot_container > .logo_footer > img {
-            height: 60px;
-        }
-        .foot_container > .links_footer {
-            display: flex;
-            gap: 40px;
-            margin: 0px 20px 40px 20px;
-            color: white;
-        }
-        .foot_container > .links_footer > .Explore_links_footer,
-        .foot_container > .links_footer > .Quick_links_footer {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-        .foot_container > .links_footer > .Explore_links_footer > h5,
-        .foot_container > .links_footer > .Quick_links_footer > h5 {
-            font-size: 17px;
-            font-weight: 600;
-            margin: 10px 0px;
-        }
-        .foot_container > .links_footer > .Explore_links_footer > a,
-        .foot_container > .links_footer > .Quick_links_footer > a {
-            color: white;
-            font-size: 17px;
-        }
-        </style>
+        
         <div class="foot_container">
             <div class="logo_footer">
                 <img src="{{ url_for('static', filename='Assets/LOGO/LOGO_forDarkBG.png') }}" alt="LOGO">

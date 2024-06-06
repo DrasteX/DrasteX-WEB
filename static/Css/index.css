@@ -21,7 +21,7 @@ main {
     position: relative;
     height: 500px;
     margin: 30px 50px;
-    background-image: url(../Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png);
+    background-image: url(../Assets/MOCKUPS/BANNER.png);
     background-position: center;
     border-radius: 45px;
     background-size: cover;
@@ -87,6 +87,70 @@ main {
     }
     color: white;
     margin: 40px 20px;
+
+    & > .Scroller_container {
+        display: grid;
+        grid-template-columns: min-content auto min-content;
+        & > .scroller_content {
+            scroll-behavior:smooth;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+            overflow-x: scroll;
+            & > .SCROLLER_BANNER {
+                
+                cursor: pointer;
+                height: 300px;
+                width: 200px;
+                object-fit: cover;
+                border-radius: 8px;
+                user-select: none;
+                position: relative;
+                display: grid;
+                justify-content: center;
+                align-items: center;
+                grid-template-columns: auto;
+                grid-template-rows: auto;
+            }
+        }
+
+
+        & > .left_control_scroller, .right_control_scroller {
+            cursor: pointer;
+            user-select: none;
+            min-height: 300px;
+            width: 60px;
+            border-radius: 8px;
+            background-color: #1d1d1d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            & > img {
+                height: 40px;
+            }
+        }
+        & > .left_control_scroller {
+            margin-right: 20px;
+            & > img {
+                transform: rotate(180deg);
+            }
+        }
+        & > .right_control_scroller {
+            margin-left: 20px;
+        }
+    }
+}
+
+
+#shopbyanime_scroller {
+    & > h1 {
+        text-align: center;
+        font-size: 25px;
+    }
+    color: white;
+    margin: 40px 20px;
     & > .Scroller_container {
         display: grid;
         grid-template-columns: min-content auto min-content;
@@ -100,6 +164,7 @@ main {
             
 
             & > div.SCROLLER_BANNER {
+                cursor: pointer;
                 height: 300px;
                 min-width: 200px;
                 object-fit: cover;
@@ -116,7 +181,7 @@ main {
                     filter:brightness(0.4);
                     width: 100%;
                     height: 100%;
-                    border-radius: 30px;
+                    border-radius: 8px;;
                     object-fit: cover;
                     position: absolute;
                 }
@@ -169,7 +234,7 @@ main {
         }
     }
 
-    .Scroller_Main {
+    #shopbyanime_scroller {
         & > .Scroller_container {
             & > .left_control_scroller, .right_control_scroller {
                 width: 45px;
@@ -183,7 +248,7 @@ main {
                         width: 90px;
                     }
                     & > img.BGIMG_SCROLLER_BANNER {
-                        border-radius: 15px;
+                        border-radius: 8px;
                     }
                 }
                 gap: 20px;
