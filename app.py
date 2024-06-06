@@ -168,6 +168,4 @@ def settings():
 def product():
     return render_template('product.html')
 
-if __name__ == '__main__':
-    init_db()
-    app.run(debug=False)
+
