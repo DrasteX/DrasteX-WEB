@@ -169,3 +169,5 @@ def product():
     return render_template('product.html')
 
 
+
+init_db()
