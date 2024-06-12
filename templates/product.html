@@ -11,18 +11,18 @@
 <main>
     {% block maincontent %}
         <div class="IMAGES_PDUCT">
-            <img class="main" src="{{ url_for('static', filename='Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png')}}">
+            <img class="main pImage"  src="">
             <div class="remain">
-                <img src="{{ url_for('static', filename='Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png')}}">
-                <img src="{{ url_for('static', filename='Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png')}}">
-                <img src="{{ url_for('static', filename='Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png')}}">
-                <img src="{{ url_for('static', filename='Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png')}}">
-                <img src="{{ url_for('static', filename='Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png')}}">
+                <img class="pImage">
+                <img class="pImage">
+                <img class="pImage">
+                <img class="pImage">
+                <img class="pImage">
             </div>
         </div>
         <div class="INFO_PDUCT">
             <span class="product_name">PRODUCT NAME</span>
-            <span class="colour_detail">Colour : Black</span>
+            <span class="colour_detail">Color : Black</span>
             <div class="Size_Btns_PDUCT">
                 <span>SELECT SIZE</span>
                 <div class="btns_sizes_inner_PDUCT">
@@ -55,6 +55,36 @@
             </div>
             
         </div>
+
+        <script>
+            const params = new URLSearchParams(window.location.search);
+            const product_id = params.get('product_id');
+            const pname = document.querySelector('.product_name');
+            const pcolor = document.querySelector('.colour_detail');
+            const pprice = document.querySelector('.price_text_PDUCT');
+            const pImage = document.querySelectorAll('.pImage');
+
+            fetch('../static/JSON/products.json')
+                .then(response => response.json())
+                .then(data => {
+                    if (!data[product_id]) {
+                        window.location.href="/"
+                    }
+
+                    pname.textContent = data[product_id]['product_name']
+                    pcolor.textContent = "Color : " + data[product_id]['color']
+                    pprice.textContent = "INR " + data[product_id]['price']
+
+                    pImage[0].src = '/static/' + data[product_id]['mockup1']
+                    pImage[1].src = '/static/' + data[product_id]['mockup2']
+                    pImage[2].src = '/static/' + data[product_id]['mockup3']
+                    pImage[3].src = '/static/' + data[product_id]['mockup4']
+                    pImage[4].src = '/static/' + data[product_id]['mockup5']
+                    pImage[5].src = '/static/' + data[product_id]['mockup6']
+                })
+
+        </script>
+
         
         {% endblock %}
     </main>

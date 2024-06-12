@@ -12,7 +12,7 @@ Admin_creds = ["tushardesktop1@gmail.com"]
 
 def remove_product(id, anime):
     try:
-        with open('products.json', 'r') as json_file:
+        with open('/static/JSON/products.json', 'r') as json_file:
             data = json.load(json_file)
     except Exception as E:
         data = {}
@@ -25,13 +25,13 @@ def remove_product(id, anime):
             os.remove(f'{pathlib.Path().resolve()}\\static\\Assets\\MOCKUPS\\{files}')
     
 
-    with open('products.json', 'w') as json_file:
+    with open('/static/JSON/products.json', 'w') as json_file:
         json.dump(data, json_file, indent = 4)
 
 def add_product(id, name, color, price, instock,  type, anime, m1, m2, m3, m4, m5, m6):
     data_new = {
         "product_name": name,
-        "colour": color,
+        "color": color,
         "price": price,
         "in_stock": instock,
         "type":type,
@@ -45,14 +45,14 @@ def add_product(id, name, color, price, instock,  type, anime, m1, m2, m3, m4, m
     }
 
     try:
-        with open('products.json', 'r') as json_file:
+        with open('/static/JSON/products.json', 'r') as json_file:
             data = json.load(json_file)
     except Exception as E:
         data = {}
 
     data[id] = data_new
 
-    with open('products.json', 'w') as json_file:
+    with open('/static/JSON/products.json', 'w') as json_file:
         json.dump(data, json_file, indent = 4)
 
 
@@ -170,7 +170,7 @@ def add_or_update_products():
 
         if form_type == 'delete':
             try:
-                with open('products.json', 'r') as json_file:
+                with open('/static/JSON/products.json', 'r') as json_file:
                     data = json.load(json_file)
             except Exception as E:
                 data = {}
@@ -192,31 +192,31 @@ def add_or_update_products():
             instock = request.form.get('product_instock')
 
             m1 = request.files['mockup1']
-            m1fname = f'{pathlib.Path().resolve()}\\static\\Assets\\MOCKUPS\\{anime}_{id}_1.{m1.filename.split('.')[-1]}'
-            m1.save(m1fname)
+            m1fname = f'Assets/MOCKUPS/{anime}_{id}_1.{m1.filename.split('.')[-1]}'
+            m1.save(f'{pathlib.Path().resolve()}\\static\\Assets\\MOCKUPS\\{anime}_{id}_1.{m1.filename.split('.')[-1]}')
 
             m2 = request.files['mockup2']
-            m2fname = f'{pathlib.Path().resolve()}\\static\\Assets\\MOCKUPS\\{anime}_{id}_2.{m2.filename.split('.')[-1]}'
-            m2.save(m2fname)
+            m2fname = f'Assets/MOCKUPS/{anime}_{id}_2.{m2.filename.split('.')[-1]}'
+            m2.save(f'{pathlib.Path().resolve()}\\static\\Assets\\MOCKUPS\\{anime}_{id}_2.{m2.filename.split('.')[-1]}')
 
             m3 = request.files['mockup3']
-            m3fname = f'{pathlib.Path().resolve()}\\static\\Assets\\MOCKUPS\\{anime}_{id}_3.{m3.filename.split('.')[-1]}'
-            m3.save(m3fname)
+            m3fname = f'Assets/MOCKUPS/{anime}_{id}_3.{m3.filename.split('.')[-1]}'
+            m3.save(f'{pathlib.Path().resolve()}\\static\\Assets\\MOCKUPS\\{anime}_{id}_3.{m3.filename.split('.')[-1]}')
 
             m4 = request.files['mockup4']
-            m4fname = f'{pathlib.Path().resolve()}\\static\\Assets\\MOCKUPS\\{anime}_{id}_4.{m4.filename.split('.')[-1]}'
-            m4.save(m4fname)
+            m4fname = f'Assets/MOCKUPS/{anime}_{id}_4.{m4.filename.split('.')[-1]}'
+            m4.save(f'{pathlib.Path().resolve()}\\static\\Assets\\MOCKUPS\\{anime}_{id}_4.{m4.filename.split('.')[-1]}')
 
             m5 = request.files['mockup5']
-            m5fname = f'{pathlib.Path().resolve()}\\static\\Assets\\MOCKUPS\\{anime}_{id}_5.{m5.filename.split('.')[-1]}'
-            m5.save(m5fname)
+            m5fname = f'Assets/MOCKUPS/{anime}_{id}_5.{m5.filename.split('.')[-1]}'
+            m5.save(f'{pathlib.Path().resolve()}\\static\\Assets\\MOCKUPS\\{anime}_{id}_5.{m5.filename.split('.')[-1]}')
 
             m6 = request.files['mockup6']
-            m6fname = f'{pathlib.Path().resolve()}\\static\\Assets\\MOCKUPS\\{anime}_{id}_6.{m6.filename.split('.')[-1]}'
-            m6.save(m6fname)
+            m6fname = f'Assets/MOCKUPS/{anime}_{id}_6.{m6.filename.split('.')[-1]}'
+            m6.save(f'{pathlib.Path().resolve()}\\static\\Assets\\MOCKUPS\\{anime}_{id}_6.{m6.filename.split('.')[-1]}')
         
             try:
-                with open('products.json', 'r') as json_file:
+                with open('/static/JSON/products.json', 'r') as json_file:
                     data = json.load(json_file)
             except Exception as E:
                 data = {}
@@ -225,8 +225,6 @@ def add_or_update_products():
                 return redirect(url_for('add_or_update_products'))
             else:
                 add_product(id, name, color, price, instock,  type, anime, m1fname, m2fname, m3fname, m4fname, m5fname, m6fname)
-        elif form_type == 'update':
-            pass
 
         return redirect(url_for('add_or_update_products'))
         

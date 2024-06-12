@@ -110,7 +110,6 @@
     </div>
     <h1>ADMIN AREA</h1>
     <button id="add_product">ADD</button>
-    <button id="update_product">UPDATE</button>
     <button id="delete_product">DELETE</button>
 
     <form enctype="multipart/form-data" id="form" method="POST" action="{{url_for('add_or_update_products')}}">
@@ -156,17 +155,6 @@
             document.getElementById('form_type').setAttribute('value','add')
             form.style.display="flex"
         }
-        update_product.onclick = ()=>{
-            let inputs = document.querySelectorAll('input')
-            inputs.forEach((element)=>{
-                if (element.getAttribute('id') != "product_id" && element.getAttribute('type') != "submit" && element.getAttribute('id') != "form_type") {
-                    element.remove()
-                }
-            })
-            document.getElementById('form_type').setAttribute('value','update')
-            form.style.display="flex"
-        }
-
         console.log(window.location.href)
     </script>
     <script>
