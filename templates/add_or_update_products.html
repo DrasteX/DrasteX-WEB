@@ -1,0 +1,201 @@
+{% extends "base.html" %}
+
+{% block title %}ADMIN CONSOLE{% endblock %}
+
+{% block stylepath %}
+<style>
+    .error_notification_container {
+    display: none;
+    flex-direction: row;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #181818;
+    z-index: 10000;
+    gap: 15px;
+    padding: 7px 15px;
+    border-radius: 5px;
+    top: 10px;
+    font-size: 15px;
+    font-weight: 600;
+   white-space: nowrap;
+    color: white; /* Ensure text is visible against the dark background */
+    opacity: 0;
+    transition: opacity 0.5s ease, top 0.5s ease;
+    & > img {
+        height: 20px;
+    }
+    
+}
+.error_notification_container.show {
+    display: flex;
+    opacity: 1;
+    top: 20px; /* Adjust this value based on where you want it to slide to */
+}
+
+.error_notification_container.hide {
+    opacity: 0;
+    top: 10px;
+}
+
+    * {
+        color: white;
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+    main {
+        max-width: 1200px;
+        align-self: center;
+        width: 100%;
+        & > form {
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 400px;
+            gap: 15px;
+
+            & > input {
+                background-color: #111111;
+                font-size: 15px;
+                padding: 5px 10px;
+                border: 0;
+                outline: 0;
+                border-radius: 5px;
+                font-weight: 600;
+                
+
+            }
+        }
+    }
+    #submit {
+        background-color: red;
+    }
+    footer {
+        display: none;
+    }
+    button {
+        padding: 15px 25px;
+        font-weight: 900;
+        background-color: #111111;
+        outline: 0;
+        border: 0;
+        margin: 20px 15px 20px 0px;
+        border-radius: 8px;
+    }
+    #form{
+        display: none
+    }
+    .mockupinput::-webkit-file-upload-button {
+        background-color: transparent;
+        color: white;
+        font-weight: 100;
+        outline: 0;
+        border: 1px white dashed;
+        padding: 5px 20px;
+        margin-right: 10px;
+        border-radius: 8px;
+    }
+</style>
+{% endblock %}
+{% block scriptpath %}
+
+{% endblock %}
+
+<main>
+    {% block maincontent %}
+    <div id="error_notification" class="error_notification_container">
+        <img src="{{ url_for('static', filename='Assets/Components/info_icon.png') }}" alt="Error Icon">
+        <span id="error_message">Error message goes here</span>
+    </div>
+    <h1>ADMIN AREA</h1>
+    <button id="add_product">ADD</button>
+    <button id="update_product">UPDATE</button>
+    <button id="delete_product">DELETE</button>
+
+    <form enctype="multipart/form-data" id="form" method="POST" action="{{url_for('add_or_update_products')}}">
+        <input hidden id="form_type" name="form_type">
+
+        <input required type="number" name="product_id" id="product_id" placeholder="PRODUCT ID (NUM)">
+
+        <input required type="text" name="product_name" id="product_name" placeholder="PRODUCT NAME (TEXT)">
+        <input required type="number" name="product_price" id="product_price" placeholder="PRODUCT PRICE (NUM)">
+        <input required type="text" name="product_color" id="product_color" placeholder="COLOR (TEXT)">
+        <input required type="text" name="product_type" id="product_type" placeholder="TYPE (TEXT)">
+        <input required type="text" name="product_anime" id="product_anime" placeholder="ANIME (TEXT)">
+        <input required type="text" name="product_instock" id="product_instock" placeholder="IN STOCK? (BOOL)">
+        <input required type="file" accept="image/*" name="mockup1" id="mockup1" class ="mockupinput" placeholder="MOCKUP 1">
+        <input required type="file" accept="image/*" name="mockup2" id="mockup2" class ="mockupinput" placeholder="MOCKUP 2">
+        <input required type="file" accept="image/*" name="mockup3" id="mockup3" class ="mockupinput" placeholder="MOCKUP 3">
+        <input required type="file" accept="image/*" name="mockup4" id="mockup4" class ="mockupinput" placeholder="MOCKUP 4">
+        <input required type="file" accept="image/*" name="mockup5" id="mockup5" class ="mockupinput" placeholder="MOCKUP 5">
+        <input required type="file" accept="image/*" name="mockup6" id="mockup6" class ="mockupinput" placeholder="MOCKUP 6">
+
+        
+        <input id="submit" type="submit" name="submit" value="SUBMIT">
+    </form>
+    
+    <script>
+    
+        const add_product = document.getElementById('add_product')
+        const update_product = document.getElementById('update_product')
+        const delete_product = document.getElementById('delete_product')
+        const form = document.getElementById('form')
+    
+        delete_product.onclick = ()=>{
+            let inputs = document.querySelectorAll('input')
+            inputs.forEach((element)=>{
+                if (element.getAttribute('id') != "product_id" && element.getAttribute('type') != "submit" && element.getAttribute('id') != "form_type") {
+                    element.remove()
+                }
+            })
+            document.getElementById('form_type').setAttribute('value','delete')
+            form.style.display="flex"
+        }
+        add_product.onclick = ()=>{
+            document.getElementById('form_type').setAttribute('value','add')
+            form.style.display="flex"
+        }
+        update_product.onclick = ()=>{
+            let inputs = document.querySelectorAll('input')
+            inputs.forEach((element)=>{
+                if (element.getAttribute('id') != "product_id" && element.getAttribute('type') != "submit" && element.getAttribute('id') != "form_type") {
+                    element.remove()
+                }
+            })
+            document.getElementById('form_type').setAttribute('value','update')
+            form.style.display="flex"
+        }
+
+        console.log(window.location.href)
+    </script>
+    <script>
+        function showError(message) {
+            const errorNotification = document.getElementById('error_notification');
+            const errorMessage = document.getElementById('error_message');
+    
+            errorMessage.textContent = message;
+            errorNotification.classList.add('show');
+            errorNotification.classList.remove('hide');
+    
+            // Hide the notification after 3 seconds with animation
+            setTimeout(() => {
+                errorNotification.classList.add('hide');
+                setTimeout(() => {
+                    errorNotification.classList.remove('show');
+                }, 500); // Match this duration with the CSS transition duration
+            }, 3000);
+        }
+    
+        // Check if there is a flash message to show
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                showError("{{ message }}");
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </script>
+    
+    {% endblock %}
+</main>

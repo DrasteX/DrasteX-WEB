@@ -6,6 +6,9 @@ html, body {
     margin: 0;
     padding: 0;
 }
+* {
+    box-sizing: border-box;
+}
 
 main {
     max-width: 1200px;
@@ -14,17 +17,21 @@ main {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    margin: 40px 20px 500px 20px;
-    display: grid;
-    grid-template-columns: min-content min-content min-content;
-    grid-template-rows: min-content min-content min-content;
-
+    margin: 40px 0px 500px 0px;
+    padding: 0px 20px;
+    display:flex;
+    flex-direction: row;
     gap: 50px;
     width: 100%;
 }
+button, a {
+    cursor: pointer;
+    
+    user-select:contain;
+}
 
-
-div.Left_Area_PDUCT {
+.INFO_PDUCT {
+    align-items: center;
     & > span.product_name {
         color: white;
         font-weight: bolder;
@@ -32,7 +39,7 @@ div.Left_Area_PDUCT {
         display: block;  
         margin-bottom: -7px;
     }
-    & > span.colour_detail {
+    & >.colour_detail {
         color: whitesmoke;
         margin-left: 10px;
     }
@@ -49,24 +56,27 @@ div.Left_Area_PDUCT {
         align-items: center;
         gap: 15px;
         background-color: #232323;
-        width: min-content;
-        white-space: nowrap;
+        width: max-content;
         padding: 4px 20px 4px 15px;
         border-radius: 5px;
         margin: 25px 0px;
     }
     & > .Size_Btns_PDUCT {
+        margin-top: 15px;
+        overflow-x: scroll;
         color: white;
         font-weight: 600;
         font-size: 17px;
         margin-bottom: 25px;
         & > div.btns_sizes_inner_PDUCT {
+            
             & > button {
                 background-color: #222222;
                 border: none;
                 color: white;
                 padding: 5px 13px;
                 border-radius: 4px;
+                
                 font-weight: 500;
             }
             display: flex;
@@ -81,6 +91,7 @@ div.Left_Area_PDUCT {
         font-size: 20px;
     }
     & > div.buyandcart_btns_PDUCT {
+        flex-wrap: wrap;
         display: flex;
         flex-direction: row;
         gap: 20px;
@@ -111,11 +122,11 @@ div.Left_Area_PDUCT {
             font-size: 20px;
             padding: 15px 50px;
             border-radius: 10px;
-
         }
     }
     & > div.sizechart_container {
         margin-top: 25px;
+        overflow-x: scroll;
         & > div#sizechart_heading {
             color: white;
             display: flex;
@@ -152,9 +163,10 @@ div.Left_Area_PDUCT {
     }
 }
 
-div.Mid_Area_PDUCT {
+.IMAGES_PDUCT {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 50px;
     & > img.main {
         height: 400px;
@@ -167,6 +179,8 @@ div.Mid_Area_PDUCT {
         flex-direction: row;
         justify-content: center;
         gap: 10px;
+        width: 100%;
+        overflow-x: scroll;
         & > img {
             height: 70px;
             min-width: 70px;
@@ -176,34 +190,14 @@ div.Mid_Area_PDUCT {
     }
 }
 
-div.Right_Area_PDUCT {
-    
-    & > div.Reviews_Container {
-        background-color: #232323;
-        padding: 18px 23px;
-        border-radius: 20px;
-        width: 270px;
-        height: 320px;
-        box-sizing: border-box;
-        & > span {
-            color: white;
-            font-weight: bold;
-            font-size: 14px;
-        }
+
+
+@media screen and (max-width: 850px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+        justify-content: unset;
     }
-    & > div.Suggestion_Container {
-        margin-top: 20px;
-        background-color: #232323;
-        padding: 18px 23px;
-        border-radius: 20px;
-        width: 270px;
-        height: 320px;
-        box-sizing: border-box;
-        & > span {
-            color: white;
-            font-weight: bold;
-            font-size: 14px;
-        }
-    }
+   
 }
 

@@ -1,6 +1,61 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 from werkzeug.security import generate_password_hash, check_password_hash
 import sqlite3
+import json
+import os
+from werkzeug.utils import secure_filename
+import pathlib
+
+Admin_creds = ["tushardesktop1@gmail.com"]
+
+
+
+def remove_product(id, anime):
+    try:
+        with open('products.json', 'r') as json_file:
+            data = json.load(json_file)
+    except Exception as E:
+        data = {}
+    
+    data.pop(str(id))
+    dirlist = os.listdir(f'{pathlib.Path().resolve()}\\static\\Assets\\MOCKUPS')
+
+    for files in dirlist:
+        if f'{anime}_{id}' in files:
+            os.remove(f'{pathlib.Path().resolve()}\\static\\Assets\\MOCKUPS\\{files}')
+    
+
+    with open('products.json', 'w') as json_file:
+        json.dump(data, json_file, indent = 4)
+
+def add_product(id, name, color, price, instock,  type, anime, m1, m2, m3, m4, m5, m6):
+    data_new = {
+        "product_name": name,
+        "colour": color,
+        "price": price,
+        "in_stock": instock,
+        "type":type,
+        "anime":anime,
+        "mockup1":m1,
+        "mockup2":m2,
+        "mockup3":m3,
+        "mockup4":m4,
+        "mockup5":m5,
+        "mockup6":m6
+    }
+
+    try:
+        with open('products.json', 'r') as json_file:
+            data = json.load(json_file)
+    except Exception as E:
+        data = {}
+
+    data[id] = data_new
+
+    with open('products.json', 'w') as json_file:
+        json.dump(data, json_file, indent = 4)
+
+
 
 app = Flask(__name__)
 app.secret_key = 'dev'
@@ -105,6 +160,79 @@ def cart():
 def orders():
     return render_template('orders.html')
 
+@app.route('/add_or_update_products', methods=['GET', 'POST'])
+def add_or_update_products():
+    if session['email'] not in Admin_creds or 'email' not in session:
+        return redirect(url_for('index'))
+    
+    if request.method=='POST':
+        form_type=request.form.get('form_type')
+
+        if form_type == 'delete':
+            try:
+                with open('products.json', 'r') as json_file:
+                    data = json.load(json_file)
+            except Exception as E:
+                data = {}
+
+            id = request.form.get('product_id')
+            anime = data[id]['anime']
+            if id in data:
+                remove_product(str(id), anime)
+            else:
+                flash('A PRODUCT WITH THAT ID DOESNT EXISTS')
+                return redirect(url_for('add_or_update_products'))
+        elif form_type == 'add':
+            id = request.form.get('product_id')
+            name = request.form.get('product_name')
+            price= request.form.get('product_price')
+            color = request.form.get('product_color')
+            type = request.form.get('product_type')
+            anime = request.form.get('product_anime')
+            instock = request.form.get('product_instock')
+
+            m1 = request.files['mockup1']
+            m1fname = f'{pathlib.Path().resolve()}\\static\\Assets\\MOCKUPS\\{anime}_{id}_1.{m1.filename.split('.')[-1]}'
+            m1.save(m1fname)
+
+            m2 = request.files['mockup2']
+            m2fname = f'{pathlib.Path().resolve()}\\static\\Assets\\MOCKUPS\\{anime}_{id}_2.{m2.filename.split('.')[-1]}'
+            m2.save(m2fname)
+
+            m3 = request.files['mockup3']
+            m3fname = f'{pathlib.Path().resolve()}\\static\\Assets\\MOCKUPS\\{anime}_{id}_3.{m3.filename.split('.')[-1]}'
+            m3.save(m3fname)
+
+            m4 = request.files['mockup4']
+            m4fname = f'{pathlib.Path().resolve()}\\static\\Assets\\MOCKUPS\\{anime}_{id}_4.{m4.filename.split('.')[-1]}'
+            m4.save(m4fname)
+
+            m5 = request.files['mockup5']
+            m5fname = f'{pathlib.Path().resolve()}\\static\\Assets\\MOCKUPS\\{anime}_{id}_5.{m5.filename.split('.')[-1]}'
+            m5.save(m5fname)
+
+            m6 = request.files['mockup6']
+            m6fname = f'{pathlib.Path().resolve()}\\static\\Assets\\MOCKUPS\\{anime}_{id}_6.{m6.filename.split('.')[-1]}'
+            m6.save(m6fname)
+        
+            try:
+                with open('products.json', 'r') as json_file:
+                    data = json.load(json_file)
+            except Exception as E:
+                data = {}
+            if id in data:
+                flash('A PRODUCT WITH THAT ID ALREADY EXISTS')
+                return redirect(url_for('add_or_update_products'))
+            else:
+                add_product(id, name, color, price, instock,  type, anime, m1fname, m2fname, m3fname, m4fname, m5fname, m6fname)
+        elif form_type == 'update':
+            pass
+
+        return redirect(url_for('add_or_update_products'))
+        
+    return render_template('add_or_update_products.html')
+    
+    
 @app.route('/settings', methods=['GET', 'POST'])
 def settings():
     if 'email' not in session:
@@ -170,4 +298,7 @@ def product():
 
 
 
-init_db()
+
+if __name__ == '__main__':
+    init_db()
+    app.run(debug=True)

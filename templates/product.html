@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Cart{% endblock %}
+{% block title %}Product{% endblock %}
 
 {% block stylepath %}
 <link rel="stylesheet" href="{{ url_for('static', filename='Css/product.css') }}">
@@ -10,13 +10,19 @@
 {% endblock %}
 <main>
     {% block maincontent %}
-        <div class="Left_Area_PDUCT">
+        <div class="IMAGES_PDUCT">
+            <img class="main" src="{{ url_for('static', filename='Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png')}}">
+            <div class="remain">
+                <img src="{{ url_for('static', filename='Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png')}}">
+                <img src="{{ url_for('static', filename='Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png')}}">
+                <img src="{{ url_for('static', filename='Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png')}}">
+                <img src="{{ url_for('static', filename='Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png')}}">
+                <img src="{{ url_for('static', filename='Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png')}}">
+            </div>
+        </div>
+        <div class="INFO_PDUCT">
             <span class="product_name">PRODUCT NAME</span>
             <span class="colour_detail">Colour : Black</span>
-            <div class="Product_Info_PDUCT">
-                <img src="{{ url_for('static', filename='Assets/Components/Arrow.png') }}">
-                <span>Product Information</span>
-            </div>
             <div class="Size_Btns_PDUCT">
                 <span>SELECT SIZE</span>
                 <div class="btns_sizes_inner_PDUCT">
@@ -34,7 +40,7 @@
                     <img src="{{ url_for('static', filename='Assets/Components/Cart_icon.png') }}">
                     <span>ADD TO<br> CART</span>
                 </button>
-                <button class="buy_button">
+                <button class="buy_button"> 
                     BUY NOW!
                 </button>
                 
@@ -49,23 +55,6 @@
             </div>
             
         </div>
-        <div class="Mid_Area_PDUCT">
-            <img class="main" src="{{ url_for('static', filename='Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png')}}">
-            <div class="remain">
-                <img src="{{ url_for('static', filename='Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png')}}">
-                <img src="{{ url_for('static', filename='Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png')}}">
-                <img src="{{ url_for('static', filename='Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png')}}">
-                <img src="{{ url_for('static', filename='Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png')}}">
-                <img src="{{ url_for('static', filename='Assets/MOCKUPS/SUKUNA_BLACK_TSHIRT_MOCKUP.png')}}">
-            </div>
-        </div>
-        <div class="Right_Area_PDUCT">
-            <div class="Reviews_Container">
-                <span>REVIEWS</span>
-            </div>
-            <div class="Suggestion_Container">
-                <span>SUGGESTIONS</span>
-            </div>
-        </div>
+        
         {% endblock %}
     </main>
