@@ -12,7 +12,7 @@ Admin_creds = ["tushardesktop1@gmail.com"]
 
 def remove_product(id, anime):
     try:
-        with open('/static/JSON/products.json', 'r') as json_file:
+        with open(f'{pathlib.Path().resolve()}/static/JSON/products.json', 'r') as json_file:
             data = json.load(json_file)
     except Exception as E:
         data = {}
@@ -25,7 +25,7 @@ def remove_product(id, anime):
             os.remove(f'{pathlib.Path().resolve()}\\static\\Assets\\MOCKUPS\\{files}')
     
 
-    with open('/static/JSON/products.json', 'w') as json_file:
+    with open(f'{pathlib.Path().resolve()}/static/JSON/products.json', 'w') as json_file:
         json.dump(data, json_file, indent = 4)
 
 def add_product(id, name, color, price, instock,  type, anime, m1, m2, m3, m4, m5, m6):
@@ -33,7 +33,7 @@ def add_product(id, name, color, price, instock,  type, anime, m1, m2, m3, m4, m
         "product_name": name,
         "color": color,
         "price": price,
-        "in_stock": instock,
+        "in_stock": bool(instock),
         "type":type,
         "anime":anime,
         "mockup1":m1,
@@ -45,14 +45,14 @@ def add_product(id, name, color, price, instock,  type, anime, m1, m2, m3, m4, m
     }
 
     try:
-        with open('/static/JSON/products.json', 'r') as json_file:
+        with open(f'{pathlib.Path().resolve()}/static/JSON/products.json', 'r') as json_file:
             data = json.load(json_file)
     except Exception as E:
         data = {}
 
     data[id] = data_new
 
-    with open('/static/JSON/products.json', 'w') as json_file:
+    with open(f'{pathlib.Path().resolve()}/static/JSON/products.json', 'w') as json_file:
         json.dump(data, json_file, indent = 4)
 
 
@@ -170,7 +170,7 @@ def add_or_update_products():
 
         if form_type == 'delete':
             try:
-                with open('/static/JSON/products.json', 'r') as json_file:
+                with open(f'{pathlib.Path().resolve()}/static/JSON/products.json', 'r') as json_file:
                     data = json.load(json_file)
             except Exception as E:
                 data = {}
@@ -216,7 +216,7 @@ def add_or_update_products():
             m6.save(f'{pathlib.Path().resolve()}\\static\\Assets\\MOCKUPS\\{anime}_{id}_6.{m6.filename.split('.')[-1]}')
         
             try:
-                with open('/static/JSON/products.json', 'r') as json_file:
+                with open(f'{pathlib.Path().resolve()}/static/JSON/products.json', 'r') as json_file:
                     data = json.load(json_file)
             except Exception as E:
                 data = {}

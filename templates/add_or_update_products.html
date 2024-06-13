@@ -96,6 +96,42 @@
         margin-right: 10px;
         border-radius: 8px;
     }
+    select {
+    /* Reset */
+    appearance: none;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    /* Personalize */
+    width: 100%;
+    padding: 0.5rem 4rem 0.5rem 1rem;
+    background: var(--arrow-icon) no-repeat right 0.8em center / 1.4em,
+      linear-gradient(to left, var(--arrow-bg) 3em, var(--select-bg) 3em);
+    color: white;
+    border-radius: 0.25em;
+    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    background-color: #111111;
+    /* Remove IE arrow */
+    &::-ms-expand {
+      display: none;
+    }
+    /* Remove focus outline */
+    &:focus {
+      outline: none;
+    }
+   
+  }
+option:checked {
+    display: none;
+}
+
+option {
+    margin: 40px;
+    background: #111111;
+    color: #fff;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}
 </style>
 {% endblock %}
 {% block scriptpath %}
@@ -120,9 +156,33 @@
         <input required type="text" name="product_name" id="product_name" placeholder="PRODUCT NAME (TEXT)">
         <input required type="number" name="product_price" id="product_price" placeholder="PRODUCT PRICE (NUM)">
         <input required type="text" name="product_color" id="product_color" placeholder="COLOR (TEXT)">
-        <input required type="text" name="product_type" id="product_type" placeholder="TYPE (TEXT)">
-        <input required type="text" name="product_anime" id="product_anime" placeholder="ANIME (TEXT)">
-        <input required type="text" name="product_instock" id="product_instock" placeholder="IN STOCK? (BOOL)">
+        <select required type="text" name="product_type" id="product_type" placeholder="TYPE (TEXT)">
+            <option value="tshirts">TSHIRT</option>
+            <option value="hoodies">HOODIES</option>
+            <option value="caps">CAPS</option>
+            <option value="keychains">KEY CHAINS</option>
+            <option value="rings">RINGS</option>
+            <option value="posters">POSTERS</option>
+            <option value="stickers">STICKERS</option>
+            <option value="sweatshirts">SWEATSHIRTS</option>
+        </select>
+        <select required type="text" name="product_anime" id="product_anime">
+            <option value="one_piece">ONE PIECE</option>
+            <option value="jujutsu_kaisen">JUJUTSU KAISEN</option>
+            <option value="chainsaw_man">CHAINSAW MAN</option>
+            <option value="hunter_x_hunter">HUNTER X HUNTER</option>
+            <option value="attack_on_titan">ATTACK ON TITAN</option>
+            <option value="naruto">NARUTO</option>
+            <option value="bleach">BLEACH</option>
+            <option value="dragon_ball_z">DRAGON BALL Z</option>
+            <option value="demon_slayer">DEMON SLAYER</option>
+            <option value="solo_leveling">SOLO LEVELING</option>
+
+        </select>
+        <select required type="text" name="product_instock" id="product_instock">
+            <option value="True">TRUE</option>
+            <option value="False">FALSE</option>
+        </select>
         <input required type="file" accept="image/*" name="mockup1" id="mockup1" class ="mockupinput" placeholder="MOCKUP 1">
         <input required type="file" accept="image/*" name="mockup2" id="mockup2" class ="mockupinput" placeholder="MOCKUP 2">
         <input required type="file" accept="image/*" name="mockup3" id="mockup3" class ="mockupinput" placeholder="MOCKUP 3">

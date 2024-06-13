@@ -11,7 +11,7 @@
 <main>
     {% block maincontent %}
         <div class="IMAGES_PDUCT">
-            <img class="main pImage"  src="">
+            <img class="main pImage">
             <div class="remain">
                 <img class="pImage">
                 <img class="pImage">
@@ -63,7 +63,7 @@
             const pcolor = document.querySelector('.colour_detail');
             const pprice = document.querySelector('.price_text_PDUCT');
             const pImage = document.querySelectorAll('.pImage');
-
+            const mainImg = document.querySelector('.main')
             fetch('../static/JSON/products.json')
                 .then(response => response.json())
                 .then(data => {
@@ -83,6 +83,14 @@
                     pImage[5].src = '/static/' + data[product_id]['mockup6']
                 })
 
+            for (let x=0; x < 6; x++) {
+                pImage[x].onclick = ()=>{
+                    y = mainImg.src
+                    mainImg.src = pImage[x].src
+                    pImage[x].src=y
+                    console.log('switch')
+                }
+            }
         </script>
 
         

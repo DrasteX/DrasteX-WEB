@@ -11,7 +11,7 @@
     {% block maincontent %}
 
     <div class="page_main_container">
-        <h1>
+        <h1 id="page_heading">
             CATALOG
         </h1>
         <div class="items_container">
@@ -29,14 +29,35 @@
             container.appendChild(imgele)
         }
 
+        const params = new URLSearchParams(window.location.search);
+        const product_type = params.get('type');
+        const product_anime = params.get('anime');
+        const heading  = document.getElementById('page_heading');
         
         fetch('../static/JSON/products.json')
                 .then(response => response.json())
                 .then(data => {
                     if (data && Object.keys(data).length > 0) {
-                        for (const product in data) {
-                            create_item(data[product]['mockup1'], product)
+                        if (product_type == '' && product_anime != '') {
+                            heading.textContent = product_anime.toUpperCase().split('_').join(' ')
+                            for (const product in data) {
+                                if (product_anime == data[product]['anime']) {
+                                    create_item(data[product]['mockup1'], product)
+                                }
+                            }
+                        } else if (product_type != '' && product_anime=='') {
+                            heading.textContent = product_type.toUpperCase().split('_').join(' ')
+                            for (const product in data) {
+                                if (product_type == data[product]['type']) {
+                                    create_item(data[product]['mockup1'], product)
+                                }
+                            }
+                        } else {
+                            for (const product in data) {
+                                create_item(data[product]['mockup1'], product)
+                            }
                         }
+                        
                     }
                 })
     </script>

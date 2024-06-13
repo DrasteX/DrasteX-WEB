@@ -2,43 +2,15 @@
     "1": {
         "product_name": "TESTING PRODUCT",
         "color": "BLACK",
-        "price": "111",
-        "in_stock": "True",
-        "type": "TSHIRT",
-        "anime": "ONEPIECE",
-        "mockup1": "Assets/MOCKUPS/ONEPIECE_1_1.jpg",
-        "mockup2": "Assets/MOCKUPS/ONEPIECE_1_2.jpg",
-        "mockup3": "Assets/MOCKUPS/ONEPIECE_1_3.jpg",
-        "mockup4": "Assets/MOCKUPS/ONEPIECE_1_4.jpg",
-        "mockup5": "Assets/MOCKUPS/ONEPIECE_1_5.jpg",
-        "mockup6": "Assets/MOCKUPS/ONEPIECE_1_6.jpg"
-    },
-    "2": {
-        "product_name": "TESTING PRODUCT",
-        "color": "BLACK",
-        "price": "111",
-        "in_stock": "True",
-        "type": "TSHIRT",
-        "anime": "ONEPIECE",
-        "mockup1": "Assets/MOCKUPS/ONEPIECE_1_1.jpg",
-        "mockup2": "Assets/MOCKUPS/ONEPIECE_1_2.jpg",
-        "mockup3": "Assets/MOCKUPS/ONEPIECE_1_3.jpg",
-        "mockup4": "Assets/MOCKUPS/ONEPIECE_1_4.jpg",
-        "mockup5": "Assets/MOCKUPS/ONEPIECE_1_5.jpg",
-        "mockup6": "Assets/MOCKUPS/ONEPIECE_1_6.jpg"
-    },
-    "3": {
-        "product_name": "TESTING PRODUCT",
-        "color": "BLACK",
-        "price": "111",
-        "in_stock": "True",
-        "type": "TSHIRT",
-        "anime": "ONEPIECE",
-        "mockup1": "Assets/MOCKUPS/ONEPIECE_1_1.jpg",
-        "mockup2": "Assets/MOCKUPS/ONEPIECE_1_2.jpg",
-        "mockup3": "Assets/MOCKUPS/ONEPIECE_1_3.jpg",
-        "mockup4": "Assets/MOCKUPS/ONEPIECE_1_4.jpg",
-        "mockup5": "Assets/MOCKUPS/ONEPIECE_1_5.jpg",
-        "mockup6": "Assets/MOCKUPS/ONEPIECE_1_6.jpg"
+        "price": "100",
+        "in_stock": true,
+        "type": "tshirts",
+        "anime": "jujutsu_kaisen",
+        "mockup1": "Assets/MOCKUPS/jujutsu_kaisen_1_1.jpg",
+        "mockup2": "Assets/MOCKUPS/jujutsu_kaisen_1_2.jpg",
+        "mockup3": "Assets/MOCKUPS/jujutsu_kaisen_1_3.jpg",
+        "mockup4": "Assets/MOCKUPS/jujutsu_kaisen_1_4.jpg",
+        "mockup5": "Assets/MOCKUPS/jujutsu_kaisen_1_5.jpg",
+        "mockup6": "Assets/MOCKUPS/jujutsu_kaisen_1_6.jpg"
     }
 }

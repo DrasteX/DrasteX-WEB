@@ -6,18 +6,17 @@ html, body {
     margin: 0;
     padding: 0;
 }
-* {
-    box-sizing: border-box;
-}
 
+.pImage {
+    cursor:pointer;
+}
 main {
     max-width: 1200px;
     justify-content: center;
     
     position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 40px 0px 500px 0px;
+    
+    margin: 40px auto 500px auto;
     padding: 0px 20px;
     display:flex;
     flex-direction: row;
@@ -31,7 +30,10 @@ button, a {
 }
 
 .INFO_PDUCT {
-    align-items: center;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(auto, auto);
+    gap: 0px;
     & > span.product_name {
         color: white;
         font-weight: bolder;
@@ -42,24 +44,6 @@ button, a {
     & >.colour_detail {
         color: whitesmoke;
         margin-left: 10px;
-    }
-    & > .Product_Info_PDUCT {
-        & > img {
-            height: 15px;
-            transform: rotate(90deg);
-        }
-        & > span {
-            color: white;
-        }
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 15px;
-        background-color: #232323;
-        width: max-content;
-        padding: 4px 20px 4px 15px;
-        border-radius: 5px;
-        margin: 25px 0px;
     }
     & > .Size_Btns_PDUCT {
         margin-top: 15px;
@@ -83,6 +67,7 @@ button, a {
             flex-direction: row;
             gap: 10px;
             margin-top: 7px;
+            flex-wrap: wrap;
         }
     }
     & > span.price_text_PDUCT {
@@ -169,21 +154,23 @@ button, a {
     align-items: center;
     gap: 50px;
     & > img.main {
-        height: 400px;
-        width: 400px;
+        max-width: 400px;
+        width: 90vw;
+        aspect-ratio: 1/1;
         object-fit: cover;
         border-radius: 30px;
     }
     & > div.remain {
-        display: flex;
-        flex-direction: row;
+        display: grid;
+        grid-template-columns: repeat(5, auto);
         justify-content: center;
         gap: 10px;
         width: 100%;
         overflow-x: scroll;
         & > img {
-            height: 70px;
-            min-width: 70px;
+            max-width: 70px;
+            aspect-ratio: 1/1;
+            width: 100%;
             object-fit: cover;
             border-radius: 10px;
         }
