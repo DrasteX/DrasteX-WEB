@@ -15,10 +15,32 @@
             CATALOG
         </h1>
         <div class="items_container">
-            <img class="catalog_items" src="{{url_for('static', filename='Assets/MOCKUPS/jjk_mockup_1.jpg')}}">
-            <img class="catalog_items" src="{{url_for('static', filename='Assets/MOCKUPS/jjk_mockup_2.jpg')}}">
-            <img class="catalog_items" src="{{url_for('static', filename='Assets/MOCKUPS/jjk_mockup_3.jpg')}}">
+            
         </div>
     </div>
+
+    <script>
+        const container = document.querySelector('.items_container')
+        function create_item(img, id){
+            const imgele = document.createElement('img')
+            imgele.classList.add('catalog_items')
+            imgele.src = '/static/' + img
+            imgele.onclick = ()=>{window.location.href='/product?product_id='+id}
+            container.appendChild(imgele)
+        }
+
+        
+        fetch('../static/JSON/products.json')
+                .then(response => response.json())
+                .then(data => {
+                    if (data && Object.keys(data).length > 0) {
+                        for (const product in data) {
+                            create_item(data[product]['mockup1'], product)
+                        }
+                    }
+                })
+    </script>
+
+
     {% endblock %}
 </main>
