@@ -2,15 +2,16 @@
     "1": {
         "product_name": "TESTING PRODUCT",
         "color": "BLACK",
-        "price": "100",
+        "price": "699",
         "in_stock": true,
         "type": "tshirts",
-        "anime": "jujutsu_kaisen",
-        "mockup1": "Assets/MOCKUPS/jujutsu_kaisen_1_1.jpg",
-        "mockup2": "Assets/MOCKUPS/jujutsu_kaisen_1_2.jpg",
-        "mockup3": "Assets/MOCKUPS/jujutsu_kaisen_1_3.jpg",
-        "mockup4": "Assets/MOCKUPS/jujutsu_kaisen_1_4.jpg",
-        "mockup5": "Assets/MOCKUPS/jujutsu_kaisen_1_5.jpg",
-        "mockup6": "Assets/MOCKUPS/jujutsu_kaisen_1_6.jpg"
+        "anime": "one_piece",
+        "sku": "MRnHs-Bk-S-SUKUNA_DESIGN_1-Fr-ca",
+        "mockup1": "Assets/MOCKUPS/one_piece_1_1.jpeg",
+        "mockup2": "Assets/MOCKUPS/one_piece_1_2.jpeg",
+        "mockup3": "Assets/MOCKUPS/one_piece_1_3.jpeg",
+        "mockup4": "Assets/MOCKUPS/one_piece_1_4.jpeg",
+        "mockup5": "Assets/MOCKUPS/one_piece_1_5.jpeg",
+        "mockup6": "Assets/MOCKUPS/one_piece_1_6.jpeg"
     }
 }

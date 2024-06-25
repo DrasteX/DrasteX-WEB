@@ -40,7 +40,16 @@ option {
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 
 html {
     min-height: 100%;
@@ -150,18 +159,36 @@ div.page_main_container {
             border: none;
             padding: 5px 15px;
             font-weight: 500;
+            font-size: medium;
             margin-top: 3px;
             border-radius: 5px;
             background-color: #d9d9d9;
         }
     }
 }
+#fname_container {
+    width: 50%;
+    box-sizing: border-box;
+    padding-right: 5px;
+}
+#lname_container {
+    width: 50%;
+    box-sizing: border-box;
+    padding-left: 5px;
+}
 #email_address {
     filter:brightness(0.6);
     pointer-events: none;
 }
+#phone_number_container {
+    padding-left: 5px;
+    box-sizing: border-box;
+    width: 50%;
+}
 #email_address_container {
-    width: 100%;
+    width: 50%;
+    box-sizing: border-box;
+    padding-right: 5px;
 }
 #street_address_container {
     width: 100%;
@@ -171,15 +198,15 @@ div.page_main_container {
 #city_name_container {
     width: 30%;
 }
-#state_name_container, #country_name_container {
+#state_name_container, #zip_code_container {
     width: 30%;
     margin-left: 5%;
     margin-bottom: 15px;
 }
-
-#zip_code_container {
+#country_name_container {
     margin-bottom: 90px;
 }
+
 .save_changes#uisettings, .save_changes#infosettings {
     background-color: #ff0000;
     color: white;

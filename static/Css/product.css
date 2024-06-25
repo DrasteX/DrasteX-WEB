@@ -54,8 +54,17 @@ button, a {
         margin-bottom: 25px;
         & > div.btns_sizes_inner_PDUCT {
             
-            & > button {
+            & > button:not(.selectedsize) {
                 background-color: #222222;
+                border: none;
+                color: white;
+                padding: 5px 13px;
+                border-radius: 4px;
+                
+                font-weight: 500;
+            }
+            & > .selectedsize {
+                background-color: red;
                 border: none;
                 color: white;
                 padding: 5px 13px;
@@ -76,13 +85,33 @@ button, a {
         font-size: 20px;
     }
     & > div.buyandcart_btns_PDUCT {
+
         flex-wrap: wrap;
         display: flex;
         flex-direction: row;
         gap: 20px;
         margin-top: 25px;
 
-        & > button.add_to_cart_button {
+        & > .add_to_cart_button {
+            
+            
+            background-color: #242424;
+            border: none;
+            color: white;
+            font-weight: bold;
+            gap: 12px;
+            text-align: left;
+            padding: 8px 25px 8px 17px;
+            font-size: 12px;
+            border-radius: 7px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            & > img {
+                height: 41px;
+            }
+        }
+        & >.sizeisselected {
             background-color: #242424;
             border: none;
             color: white;
@@ -108,6 +137,14 @@ button, a {
             padding: 15px 50px;
             border-radius: 10px;
         }
+    }
+    & > div.buyandcart_btns_PDUCT:not(.sizeisselected) {
+        pointer-events: none;
+        filter: brightness(0.6)
+    }
+    & > .sizeisselected {
+        pointer-events: all;
+        filter: none;
     }
     & > div.sizechart_container {
         margin-top: 25px;

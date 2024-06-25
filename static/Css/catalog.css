@@ -49,6 +49,7 @@ div.page_main_container {
     width: 200px;
     border-radius: 12px;
     object-fit: cover;
+    cursor: pointer;
 }
 
 

@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='Css/index.css') }}">
 {% endblock %}
 {% block scriptpath %}
+
 <script src="{{ url_for('static', filename='Js/index.js')}}"></script>
 {% endblock %}
 
@@ -30,12 +31,7 @@
                     <img src="{{ url_for('static', filename='Assets/Components/Arrow.png') }}" alt="<">
                 </div>
                 <div id="NEW_RELEASES_SCROLLER" class="scroller_content">
-                    <img class="SCROLLER_BANNER" src="{{url_for('static', filename='Assets/MOCKUPS/chainsaw_man_mockup_1.jpg')}}">
-                    <img class="SCROLLER_BANNER" src="{{url_for('static', filename='Assets/MOCKUPS/jjk_mockup_1.jpg')}}">
-                    <img class="SCROLLER_BANNER" src="{{url_for('static', filename='Assets/MOCKUPS/jjk_mockup_2.jpg')}}">
-                    <img class="SCROLLER_BANNER" src="{{url_for('static', filename='Assets/MOCKUPS/jjk_mockup_3.jpg')}}">
-                    <img class="SCROLLER_BANNER" src="{{url_for('static', filename='Assets/MOCKUPS/bleach_mockup_1.jpg')}}">
-                    <img class="SCROLLER_BANNER" src="{{url_for('static', filename='Assets/MOCKUPS/one_piece_mockup_1.jpg')}}">
+                    
                 </div>
                 <div id="NEW_RELEASES_RIGHT" class="right_control_scroller">
                     <img src="{{ url_for('static', filename='Assets/Components/Arrow.png') }}" alt=">">
@@ -123,5 +119,64 @@
                 </div>
             </div>
         </article>
+
+        <script>
+    const new_releases = document.querySelector('#NEW_RELEASES_SCROLLER')
+    const featured_collection = document.querySelector('#FEATURED_PRODUCTS_SCROLLER')
+
+    function create_item(img, id, container){
+        const imgele = document.createElement('img')
+        imgele.classList.add('SCROLLER_BANNER')
+        imgele.src = '/static/' + img
+        imgele.onclick = () => { window.location.href = '/product?product_id=' + id }
+        container.appendChild(imgele)
+    }
+
+    let new_releases_list;
+    let featured_collection_list;
+
+    fetch('../static/JSON/index_scroller_items.json')
+        .then(response => response.json())
+        .then(data => {
+            new_releases_list = data["new_releases"]
+            featured_collection_list = data["featured_collection"]
+
+            fetch('../static/JSON/products.json')
+                .then(response => response.json())
+                .then(products => {
+                    if (products && Object.keys(products).length > 0) {
+                        new_releases_list.forEach(id => {
+                            create_item(products[String(id)]["mockup1"], id, new_releases)
+                        })
+                        featured_collection_list.forEach(id => {
+                            create_item(products[String(id)]["mockup1"], id, featured_collection)
+                        })
+                    }
+                })
+        })
+    
+    function Scroll_Functionality(scroller, left, right){
+        right.addEventListener("mousedown",()=>{
+            scroller.scrollLeft += 200;
+        })
+        
+        left.addEventListener("mousedown",()=>{
+            scroller.scrollLeft -= 200;
+        })
+    }
+    console.log('h')
+
+    
+    // NEW RELEASES
+    Scroll_Functionality(document.getElementById("NEW_RELEASES_SCROLLER"), document.getElementById("NEW_RELEASES_LEFT"), document.getElementById("NEW_RELEASES_RIGHT"));
+    // FEATURED PRODUCTS
+    Scroll_Functionality(document.getElementById("FEATURED_PRODUCTS_SCROLLER"), document.getElementById("FEATURED_PRODUCTS_LEFT"), document.getElementById("FEATURED_PRODUCTS_RIGHT"));
+    // SHOP BY ANIME
+    Scroll_Functionality(document.getElementById("SHOP_BY_ANIME_SCROLLER"), document.getElementById("SHOP_BY_ANIME_LEFT"), document.getElementById("SHOP_BY_ANIME_RIGHT"));
+    // SHOP BY TYPE
+    Scroll_Functionality(document.getElementById("SHOP_BY_TYPE_SCROLLER"), document.getElementById("SHOP_BY_TYPE_LEFT"), document.getElementById("SHOP_BY_TYPE_RIGHT"));
+
+        </script>
+        
         {% endblock %}
 </main>

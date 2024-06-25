@@ -26,44 +26,60 @@
             <div class="Size_Btns_PDUCT">
                 <span>SELECT SIZE</span>
                 <div class="btns_sizes_inner_PDUCT">
-                    <button id="small_size">S</button>
-                    <button id="medium_size">M</button>
-                    <button id="large_size">L</button>
-                    <button id="extra_large_size">XL</button>
-                    <button id="extra_extra_large_size">XXL</button>
-                    <button id="extra_extra_large_size">XXXL</button>
+                    <button >S</button>
+                    <button >M</button>
+                    <button >L</button>
+                    <button >XL</button>
+                    <button >XXL</button>
+                    <button >XXXL</button>
                 </div>
             </div>
             <span class="price_text_PDUCT">...</span>
+            {% if session.get('email') %}
             <div class="buyandcart_btns_PDUCT">
-                <button class="add_to_cart_button">
+                <button class="add_to_cart_button product_1">
                     <img src="{{ url_for('static', filename='Assets/Components/Cart_icon.png') }}">
                     <span>ADD TO<br> CART</span>
                 </button>
                 <button class="buy_button"> 
                     BUY NOW!
-                </button>
-                
+                </button>  
             </div>
+            {% else %}
+            <div class="buyandcart_btns_PDUCT notloggedin">
+                <button class="add_to_cart_button product_1">
+                    <img src="{{ url_for('static', filename='Assets/Components/Cart_icon.png') }}">
+                    <span>ADD TO<br> CART</span>
+                </button>
+                <button class="buy_button"> 
+                    BUY NOW!
+                </button>  
+            </div>
+            {% endif %}
             <div class="sizechart_container">
                 <div id="sizechart_heading"><img src="{{ url_for('static', filename='Assets/Components/sizechart.png') }}"> <span>Size Chart</span></div>
                 <div class="sizechart_table">
                 <span id="heading_sizechart">Size</span> <span id="bold_sizechart">S</span> <span id="bold_sizechart">M</span> <span id="bold_sizechart">L</span> <span id="bold_sizechart">XL</span> <span id="bold_sizechart">XXL</span> <span id="bold_sizechart">XXXL</span>
-                <span id="heading_sizechart">Chest (inches)</span> <span>43</span> <span>45</span> <span>47</span> <span>49</span> <span>51</span> <span>53</span>
-                <span id="heading_sizechart">Length (inches)</span> <span>28.5</span> <span>29</span> <span>29.5</span> <span>30</span> <span>30.5</span> <span>31</span>
+                <span id="heading_sizechart">Chest (inches)</span> <span>38</span> <span>40</span> <span>42</span> <span>44</span> <span>46</span> <span>48</span>
+                <span id="heading_sizechart">Length (inches)</span> <span>26</span> <span>27</span> <span>28</span> <span>29</span> <span>30</span> <span>31</span>
                 </div>
             </div>
             
         </div>
 
         <script>
+            
+            
+
             const params = new URLSearchParams(window.location.search);
             const product_id = params.get('product_id');
             const pname = document.querySelector('.product_name');
             const pcolor = document.querySelector('.colour_detail');
             const pprice = document.querySelector('.price_text_PDUCT');
             const pImage = document.querySelectorAll('.pImage');
-            const mainImg = document.querySelector('.main')
+            const mainImg = document.querySelector('.main');
+            let color;
+            let price;
             fetch('../static/JSON/products.json')
                 .then(response => response.json())
                 .then(data => {
@@ -74,13 +90,16 @@
                     pname.textContent = data[product_id]['product_name']
                     pcolor.textContent = "Color : " + data[product_id]['color']
                     pprice.textContent = "INR " + data[product_id]['price']
-
                     pImage[0].src = '/static/' + data[product_id]['mockup1']
                     pImage[1].src = '/static/' + data[product_id]['mockup2']
                     pImage[2].src = '/static/' + data[product_id]['mockup3']
                     pImage[3].src = '/static/' + data[product_id]['mockup4']
                     pImage[4].src = '/static/' + data[product_id]['mockup5']
                     pImage[5].src = '/static/' + data[product_id]['mockup6']
+
+
+                    color = data[product_id]['color']
+                    price = data[product_id]['price']
                 })
 
             for (let x=0; x < 6; x++) {
@@ -89,6 +108,38 @@
                     mainImg.src = pImage[x].src
                     pImage[x].src=y
                     console.log('switch')
+                }
+            }
+
+
+            const buybutton = document.querySelector('.buy_button')
+            const addtocart = document.querySelector('.add_to_cart_button');
+
+            let product_size_selected = '';
+            const sizebtn_container = document.querySelector('.btns_sizes_inner_PDUCT')
+            const sizebtn_list = sizebtn_container.children
+            for(let btns of sizebtn_list) {
+                btns.onclick = ()=>{
+                    product_size_selected = btns.textContent.toLowerCase()
+                    btns.classList.add('selectedsize')
+                    for (let x of sizebtn_list) {
+                        if (x != btns){
+                            x.classList.remove('selectedsize')
+                        }
+                    }
+                    if (!document.querySelector('.buyandcart_btns_PDUCT').classList.contains('notloggedin')) {
+                        document.querySelector('.buyandcart_btns_PDUCT').classList.add('sizeisselected')
+                    }
+                }
+            }
+            buybutton.onclick=()=>{
+                if (product_id != '' && product_size_selected != ''){
+                    window.location.href='/checkout?buytype=single&product_id=' + product_id + '&size=' + product_size_selected + '&color=' + color
+                }
+            }
+            addtocart.onclick=()=>{
+                if (product_id != '' && product_size_selected != ''){ 
+                    window.location.href='/addtocart?product_id=' + product_id +'&size='+product_size_selected+'&color='+color
                 }
             }
         </script>

@@ -35,14 +35,25 @@
             <h3>USER INFO</h3>
             <form class="user_info" method="POST" action="{{ url_for('settings') }}">
                 <input type="hidden" name="form_type" value="user_info">
-
+                <div id="fname_container">
+                    <label for="fname">First Name</label>
+                    <input value="{{ user.fname }}" name="fname" type="text" id="fname">
+                </div>
+                <div id="fname_container">
+                    <label for="fname">Last Name</label>
+                    <input value="{{ user.lname }}" name="lname" type="text" id="lname">
+                </div>
                 <div id="email_address_container">
-                    <label for="email_address">Email Address</label>
+                    <label for="email">Email</label>
                     <input value="{{ session['email'] }}" name="email" type="email" id="email_address" readonly>
+                </div>
+                <div id="phone_number_container">
+                    <label for="phone_number">Phone Number</label>
+                    <input value="{{ user.phone_number }}" name="phone_number" type="number" minlength="10" maxlength="12" id="phone_number">
                 </div>
 
                 <div id="street_address_container">
-                    <label for="street_address">Street Address</label>
+                    <label for="street_address">Address</label>
                     <input name="street_address" type="text" id="street_address" value="{{ user.street_address }}">
                 </div>
 
@@ -52,19 +63,22 @@
                 </div>
 
                 <div id="state_name_container">
-                    <label for="state_name">State</label>
+                    <label for="state_name">State/Province</label>
                     <input name="state_name" type="text" id="state_name" value="{{ user.state }}">
                 </div>
 
-                <div id="country_name_container">
-                    <label for="country_name">Country</label>
-                    <input name="country_name" type="text" id="country_name" value="{{ user.country }}">
-                </div>
-
                 <div id="zip_code_container">
-                    <label for="zip_code">Zip / Postal Code</label>
+                    <label for="zip_code">ZIP/Postal Code</label>
                     <input name="zip_code" type="text" id="zip_code" value="{{ user.zip_code }}">
                 </div>
+                
+                <div id="country_name_container">
+                    <label for="country_name">Country</label>
+                    <select name="country_name" id="country_name">
+                        <option value="IN" {% if user.country == "IN" %}selected{% endif %}>INDIA</option>
+                    </select>
+                </div>
+
 
                 <input type="submit" value="Save Changes" class="save_changes" id="infosettings">
             </form>
@@ -78,9 +92,6 @@
                     <span>Currency</span>
                     <select name="currency" class="select_currency">
                         <option value="INR" {% if user.currency == 'INR' %}selected{% endif %}>INR</option>
-                        <option value="USD" {% if user.currency == 'USD' %}selected{% endif %}>USD</option>
-                        <option value="CAD" {% if user.currency == 'CAD' %}selected{% endif %}>CAD</option>
-                        <option value="PESOS" {% if user.currency == 'PESOS' %}selected{% endif %}>PESOS</option>
                     </select>
                 </div>
                 <input type="submit" value="Save Changes" class="save_changes" id="uisettings">

@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block stylepath %}
+<link rel="stylesheet" href="{{ url_for('static', filename='Css/checkout.css') }}">
+{% endblock %}
+{% block scriptpath %}
+{% endblock %}
+
+<main>
+    {% block maincontent %}
+    <div class="page_main_container">
+        <h1>CHECKOUT</h1>
+        <form class="checkout_main_container" method="POST">
+            <div id="fname_mcont">
+                <label>First Name</label>
+                <input value="{{user.fname}}"  name="fname" id="fname" type="text" required>
+            </div>
+            <div id="lname_mcont">
+                <label>Last Name</label>
+                <input value="{{user.lname}}" name="lname" id="lname" type="text" required>
+            </div>
+            <div id="email_mcont">
+                <label>Email</label>
+                <input value="{{session['email']}}" name="email" id="email" type="email" required readonly>
+            </div>
+            <div id="phone_mcont">
+                <label>Phone Number</label>
+                <input value="{{user.phone_number}}" required name="phone" id="phone" type="tel" minlength="10" maxlength="15">
+            </div>
+            <div id="address_mcont">
+                <label>Address</label>
+                <input value="{{user.street_address}}" name="address" id="address" type="text" required>
+            </div>
+            <div id="city_mcont">
+                <label>City</label>
+                <input value="{{user.city}}" name="city" id="city" type="text" required>
+            </div>
+            <div id="province_mcont">
+                <label>State/Province</label>
+                <input value="{{user.state}}" name="state" id="state" type="text" required>
+            </div>
+            <div id="zip_mcont">
+                <label>ZIP/Postal Code</label>
+                <input value="{{user.zip_code}}" name="zip" id="zip" type="text" required>
+            </div>
+            
+            <div id="country_mcont">
+                <label for="country">Country</label>
+                <select name="country" id="country">
+                    <option value="IN" {% if user.country == "IN" %}selected{%endif%}>INDIA</option>
+                </select>
+            </div>
+            
+            <input type="submit" id="submit" value="Proceed To Checkout">
+            
+        </form>
+        <div class="summary_outer_cont">
+            <div class="summary_main_container">
+                <span id="summary_title">Order Summary</span>
+                <div class="order_items_in_cart">
+                    
+                </div>
+
+                <hr>
+
+                <div class="total_order_cost">
+                    <span class="total_text">TOTAL</span>
+                    <span class="total_num">INR ...</span>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+</main>

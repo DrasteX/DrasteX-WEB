@@ -1,6 +1,8 @@
 
 document.addEventListener("DOMContentLoaded",()=>{
     // MOBILE MENU 
+    
+
 
     const mobile_menu = document.querySelector(".nav_head");
     const mobile_menu_open_btn = document.querySelector("#menu_btn");
